@@ -2,10 +2,16 @@
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
-
+    
     public float moveSpeed;
 
-    Vector3 mousePos;
+    LineRenderer sight;    
+    RaycastHit2D[] hitList;
+
+    void Awake()
+    {
+        sight = this.transform.FindChild("Sight").GetComponent<LineRenderer>();
+    }
 		
 	void Update () {
         mouseLook();
@@ -34,8 +40,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Shoot()
-    {
-        RaycastHit2D[] hitList = Physics2D.RaycastAll(this.transform.position, mousePos - this.transform.position);
+    {        
         foreach (RaycastHit2D hit in hitList)
         {
             if (hit.collider.CompareTag("Wall"))
@@ -51,9 +56,22 @@ public class PlayerController : MonoBehaviour {
 
     private void mouseLook()
     {
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);        
         Vector3 dir = mousePos - this.transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle - 90, new Vector3(0, 0, 1));
+        
+        Vector3 lineEndPos = new Vector3(dir.x * 100, dir.y * 100, 0);
+        hitList = Physics2D.RaycastAll(this.transform.position, mousePos - this.transform.position);
+        foreach (RaycastHit2D hit in hitList)
+        {
+            if (hit.collider.CompareTag("Wall"))
+            {
+                Debug.Log(hit.point);
+                lineEndPos = hit.point;
+            }
+        }
+        sight.SetPosition(0, this.transform.position);
+        sight.SetPosition(1, lineEndPos);
     }
 }
