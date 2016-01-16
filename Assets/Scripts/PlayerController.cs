@@ -2,11 +2,15 @@
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
-    
+    public enum bulletEnum { piercing, bouncing, exploding }
+
     public float moveSpeed;
+    public bulletEnum bulletType;
 
     LineRenderer sight;    
     RaycastHit2D[] hitList;
+    Vector3 mousePos;
+
 
     void Awake()
     {
@@ -40,7 +44,23 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Shoot()
-    {        
+    {
+        switch (bulletType)
+        {
+            case bulletEnum.piercing:
+                _PiercingShot();
+                break;
+            case bulletEnum.bouncing:
+                _BouncingShot();
+                break;
+            case bulletEnum.exploding:
+                //_ExplodingShot();
+                break;
+        }
+    }
+
+    private void _PiercingShot()
+    {
         foreach (RaycastHit2D hit in hitList)
         {
             if (hit.collider.CompareTag("Wall"))
@@ -54,9 +74,44 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    private void _BouncingShot()
+    {
+        int breakCounter = 0;
+
+
+        int bounceCount = 0;
+        Vector3 initialPos = this.transform.position;
+        Vector3 targetPos = mousePos - this.transform.position;
+
+        while (bounceCount <= 5)
+        {
+            breakCounter++;
+            if (breakCounter > 50)
+            {
+                break;
+            }
+
+            RaycastHit2D[] tempHitList = Physics2D.RaycastAll(initialPos, targetPos);
+            foreach (RaycastHit2D hit in hitList)
+            {
+                if (hit.collider.CompareTag("Wall"))
+                {
+                    bounceCount++;
+                    targetPos = Vector3.Reflect(initialPos, hit.normal);
+                    initialPos = hit.point;                    
+                    break;
+                }
+                if (hit.collider.CompareTag("Enemy"))
+                {
+                    Destroy(hit.collider.gameObject);
+                }
+            }           
+        }        
+    }
+
     private void mouseLook()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);        
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);        
         Vector3 dir = mousePos - this.transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle - 90, new Vector3(0, 0, 1));
