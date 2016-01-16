@@ -97,21 +97,23 @@ public class PlayerController : MonoBehaviour {
         laser.SetPosition(0, initialPos);
 
         for (int i = 0; i < 5; i++)
-        { 
-            initialPos += (targetPos - initialPos).normalized * 0.1f;
-            targetPos.Normalize();
-            targetPos = Vector3.Scale(new Vector3(100, 100, 0), targetPos);
+        {                        
             RaycastHit2D[] tempHitList = Physics2D.RaycastAll(initialPos, targetPos-initialPos);                            
             laser.enabled = true;                   
 
             foreach (RaycastHit2D hit in tempHitList)
             {
                 if (hit.collider.CompareTag("Wall"))
-                {                    
+                {
+                    Debug.Log(hit.collider.gameObject.name);
                     bounceCount++;
                     laser.SetPosition(bounceCount, hit.point);                    
                     initialPos = hit.point;
-                    targetPos = Vector2.Reflect(targetPos, hit.normal);                    
+                    targetPos = Vector2.Reflect(targetPos, hit.normal);
+
+                    initialPos += (targetPos - initialPos).normalized * 0.1f;
+                    targetPos.Normalize();
+                    targetPos = Vector3.Scale(new Vector3(100, 100, 0), targetPos);
                     break;
                 }
                 if (hit.collider.CompareTag("Enemy"))
