@@ -3,13 +3,13 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-    public enum bulletEnum { piercing, bouncing, exploding }    
-
-    Rigidbody2D rigidBody;
+    public enum bulletEnum { piercing, bouncing, exploding }
+    
     public float moveSpeed;
     public bulletEnum currentBullet;
 
-    LineRenderer sight;    
+    LineRenderer sight, laser;    
+    Rigidbody2D rigidBody;
     RaycastHit2D[] hitList;
     Vector3 mousePos;
 
@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
     void Awake()
     {
         sight = this.transform.FindChild("Sight").GetComponent<LineRenderer>();
+        laser = this.transform.FindChild("Laser").GetComponent<LineRenderer>();
     }
 		
 	void Update () {
@@ -89,41 +90,35 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void _BouncingShot()
-    {
-        int breakCounter = 0;
-
-
+    {        
         int bounceCount = 0;
         Vector3 initialPos = this.transform.position;
-        Vector3 targetPos = mousePos/* - this.transform.position*/;
+        Vector3 targetPos = mousePos;
+        laser.SetPosition(0, initialPos);
 
-        while (bounceCount <= 5)
-        {           
-            //breakCounter++;
-            //if (breakCounter > 50)
-            //{
-            //    break;
-            //}
-
-            targetPos -= initialPos;
+        for (int i = 0; i < 5; i++)
+        { 
+            initialPos += (targetPos - initialPos).normalized * 0.1f;
             targetPos.Normalize();
             targetPos = Vector3.Scale(new Vector3(100, 100, 0), targetPos);
-            RaycastHit2D[] tempHitList = Physics2D.RaycastAll(initialPos, targetPos);            
+            RaycastHit2D[] tempHitList = Physics2D.RaycastAll(initialPos, targetPos-initialPos);                            
+            laser.enabled = true;                   
 
             foreach (RaycastHit2D hit in tempHitList)
             {
                 if (hit.collider.CompareTag("Wall"))
-                {
+                {                    
                     bounceCount++;
-                    targetPos = Vector2.Reflect(targetPos, hit.normal);
-                    initialPos = hit.point;                    
+                    laser.SetPosition(bounceCount, hit.point);                    
+                    initialPos = hit.point;
+                    targetPos = Vector2.Reflect(targetPos, hit.normal);                    
                     break;
                 }
                 if (hit.collider.CompareTag("Enemy"))
                 {
                     Destroy(hit.collider.gameObject);
                 }
-            }           
+            }
         }        
     }
 
