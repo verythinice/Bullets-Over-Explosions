@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour {
                 if (currentBullet == bulletEnum.bouncing)
                 {                
                     normal = hit.normal;
-                    linePos2 = Vector3.Reflect(new Vector3(hit.point.x, hit.point.y, 0) - this.transform.position, hit.normal);                    
+                    linePos2 = Vector2.Reflect(linePos2, hit.normal);
                 }
             }
         }
