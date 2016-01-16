@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 473168}
   - 212: {fileID: 21268284}
   - 114: {fileID: 11403238}
-  - 50: {fileID: 5073232}
+  - 50: {fileID: 5034052}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -88,7 +88,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 473168}
   m_RootOrder: 1
---- !u!50 &5073232
+--- !u!50 &5034052
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
