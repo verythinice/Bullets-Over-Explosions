@@ -84,7 +84,13 @@ public class PlayerController : MonoBehaviour {
             }
             if (hit.collider.CompareTag("Enemy"))
             {
-                Destroy(hit.collider.gameObject);
+                //Destroy(hit.collider.gameObject);
+                hit.collider.tag = "Dead";
+            }
+            if (hit.collider.CompareTag("Object"))
+            {
+                //Destroy(hit.collider.gameObject);
+                hit.collider.tag = "Explode";
             }
         }
     }
@@ -93,12 +99,16 @@ public class PlayerController : MonoBehaviour {
     {        
         int bounceCount = 0;
         Vector3 initialPos = this.transform.position;
-        Vector3 targetPos = mousePos;
+        Vector3 targetPos = mousePos - initialPos;
         laser.SetPosition(0, initialPos);
 
-        for (int i = 0; i < 5; i++)
-        {                        
-            RaycastHit2D[] tempHitList = Physics2D.RaycastAll(initialPos, targetPos-initialPos);                            
+        for (int i = 1; i <= 5; i++)
+        {            
+            targetPos.Normalize();
+            targetPos = Vector3.Scale(new Vector3(100, 100, 0), targetPos);
+            Vector3 vertexPos = targetPos; 
+            initialPos += (targetPos - initialPos).normalized * 0.1f;            
+            RaycastHit2D[] tempHitList = Physics2D.RaycastAll(initialPos, targetPos);                            
             laser.enabled = true;                   
 
             foreach (RaycastHit2D hit in tempHitList)
@@ -107,13 +117,10 @@ public class PlayerController : MonoBehaviour {
                 {
                     Debug.Log(hit.collider.gameObject.name);
                     bounceCount++;
-                    laser.SetPosition(bounceCount, hit.point);                    
+                    vertexPos = hit.point;
+                    //laser.SetPosition(bounceCount, hit.point);             
                     initialPos = hit.point;
-                    targetPos = Vector2.Reflect(targetPos, hit.normal);
-
-                    initialPos += (targetPos - initialPos).normalized * 0.1f;
-                    targetPos.Normalize();
-                    targetPos = Vector3.Scale(new Vector3(100, 100, 0), targetPos);
+                    targetPos = Vector2.Reflect(targetPos, hit.normal);                    
                     break;
                 }
                 if (hit.collider.CompareTag("Enemy"))
@@ -121,6 +128,8 @@ public class PlayerController : MonoBehaviour {
                     Destroy(hit.collider.gameObject);
                 }
             }
+
+            laser.SetPosition(i, vertexPos);
         }        
     }
 
