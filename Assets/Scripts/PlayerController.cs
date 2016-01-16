@@ -131,10 +131,7 @@ public class PlayerController : MonoBehaviour {
             {     
                 linePos1 = hit.point;
                 if (currentBullet == bulletEnum.bouncing)
-                {
-                    //Vector3 v = new Vector3(hit.point.x, hit.point.y, 0) - this.transform.position;
-                    //Vector3 p = new Vector3(-v.y, v.x, 0) / Mathf.Sqrt(v.x * v.x + v.y * v.y) * 1;
-                    //linePos2 = p;
+                {                
                     normal = hit.normal;
                     linePos2 = Vector3.Reflect(new Vector3(hit.point.x, hit.point.y, 0) - this.transform.position, hit.normal);                    
                 }
