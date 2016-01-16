@@ -116,7 +116,9 @@ public class PlayerController : MonoBehaviour {
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle - 90, new Vector3(0, 0, 1));
         
-        Vector3 lineEndPos = new Vector3(dir.x * 100, dir.y * 100, 0);
+        Vector3 lineEndPos = new Vector3(dir.x, dir.y, 0);
+        lineEndPos.Normalize();
+        lineEndPos = Vector3.Scale(new Vector3(100, 100, 0), lineEndPos);
         hitList = Physics2D.RaycastAll(this.transform.position, mousePos - this.transform.position);
         foreach (RaycastHit2D hit in hitList)
         {
