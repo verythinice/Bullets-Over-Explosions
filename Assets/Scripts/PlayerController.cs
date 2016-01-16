@@ -3,9 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-    public enum bulletEnum { piercing, bouncing, exploding }
-
-    public Vector3 normal;
+    public enum bulletEnum { piercing, bouncing, exploding }    
 
     Rigidbody2D rigidBody;
     public float moveSpeed;
@@ -97,23 +95,27 @@ public class PlayerController : MonoBehaviour {
 
         int bounceCount = 0;
         Vector3 initialPos = this.transform.position;
-        Vector3 targetPos = mousePos - this.transform.position;
+        Vector3 targetPos = mousePos/* - this.transform.position*/;
 
         while (bounceCount <= 5)
-        {
-            breakCounter++;
-            if (breakCounter > 50)
-            {
-                break;
-            }
+        {           
+            //breakCounter++;
+            //if (breakCounter > 50)
+            //{
+            //    break;
+            //}
 
-            RaycastHit2D[] tempHitList = Physics2D.RaycastAll(initialPos, targetPos);
-            foreach (RaycastHit2D hit in hitList)
+            targetPos -= initialPos;
+            targetPos.Normalize();
+            targetPos = Vector3.Scale(new Vector3(100, 100, 0), targetPos);
+            RaycastHit2D[] tempHitList = Physics2D.RaycastAll(initialPos, targetPos);            
+
+            foreach (RaycastHit2D hit in tempHitList)
             {
                 if (hit.collider.CompareTag("Wall"))
                 {
                     bounceCount++;
-                    targetPos = Vector3.Reflect(initialPos, hit.normal);
+                    targetPos = Vector2.Reflect(targetPos, hit.normal);
                     initialPos = hit.point;                    
                     break;
                 }
@@ -145,8 +147,7 @@ public class PlayerController : MonoBehaviour {
             {     
                 linePos1 = hit.point;
                 if (currentBullet == bulletEnum.bouncing)
-                {                
-                    normal = hit.normal;
+                {                                    
                     linePos2 = Vector2.Reflect(linePos2, hit.normal);
                 }
             }
