@@ -4,8 +4,10 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
     public enum bulletEnum { piercing, bouncing, exploding }
 
+    public Vector3 normal;
+
     public float moveSpeed;
-    public bulletEnum bulletType;
+    public bulletEnum currentBullet;
 
     LineRenderer sight;    
     RaycastHit2D[] hitList;
@@ -17,9 +19,7 @@ public class PlayerController : MonoBehaviour {
         sight = this.transform.FindChild("Sight").GetComponent<LineRenderer>();
     }
 		
-	void Update () {
-        mouseLook();
-
+	void Update () {        
 	    if (Input.GetKey(KeyCode.W))
         {
             this.transform.Translate(new Vector2(0, 1) * moveSpeed * Time.deltaTime, Space.World);
@@ -35,17 +35,19 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKey(KeyCode.A))
         {
             this.transform.Translate(new Vector2(-1, 0) * moveSpeed * Time.deltaTime, Space.World);            
-        }        
+        }
+
+        mouseLook();
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();            
-        }               
+        }        
     }
 
     private void Shoot()
     {
-        switch (bulletType)
+        switch (currentBullet)
         {
             case bulletEnum.piercing:
                 _PiercingShot();
@@ -116,19 +118,30 @@ public class PlayerController : MonoBehaviour {
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle - 90, new Vector3(0, 0, 1));
         
-        Vector3 lineEndPos = new Vector3(dir.x, dir.y, 0);
-        lineEndPos.Normalize();
-        lineEndPos = Vector3.Scale(new Vector3(100, 100, 0), lineEndPos);
+        Vector3 linePos1 = new Vector3(dir.x, dir.y, 0);
+        linePos1.Normalize();
+        linePos1 = Vector3.Scale(new Vector3(100, 100, 0), linePos1);
+
+        Vector3 linePos2 = linePos1;
+
         hitList = Physics2D.RaycastAll(this.transform.position, mousePos - this.transform.position);
         foreach (RaycastHit2D hit in hitList)
         {
             if (hit.collider.CompareTag("Wall"))
-            {
-                Debug.Log(hit.point);
-                lineEndPos = hit.point;
+            {     
+                linePos1 = hit.point;
+                if (currentBullet == bulletEnum.bouncing)
+                {
+                    //Vector3 v = new Vector3(hit.point.x, hit.point.y, 0) - this.transform.position;
+                    //Vector3 p = new Vector3(-v.y, v.x, 0) / Mathf.Sqrt(v.x * v.x + v.y * v.y) * 1;
+                    //linePos2 = p;
+                    normal = hit.normal;
+                    linePos2 = Vector3.Reflect(new Vector3(hit.point.x, hit.point.y, 0) - this.transform.position, hit.normal);                    
+                }
             }
         }
         sight.SetPosition(0, this.transform.position);
-        sight.SetPosition(1, lineEndPos);
+        sight.SetPosition(1, linePos1);
+        sight.SetPosition(2, linePos2);
     }
 }

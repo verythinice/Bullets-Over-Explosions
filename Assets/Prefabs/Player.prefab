@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  bulletType: 0
+  currentBullet: 1
 --- !u!120 &12099076
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -100,15 +100,16 @@ LineRenderer:
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 2, z: 1}
+  - {x: 0, y: 2, z: 1}
   m_Parameters:
-    startWidth: 0.1
-    endWidth: 0.05
+    startWidth: 0.01
+    endWidth: 0.005
     m_StartColor:
       serializedVersion: 2
       rgba: 4278190080
     m_EndColor:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 4278190080
   m_UseWorldSpace: 1
 --- !u!212 &21268284
 SpriteRenderer:
