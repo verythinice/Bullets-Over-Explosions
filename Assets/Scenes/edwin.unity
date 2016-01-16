@@ -228,7 +228,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 05ceeec218460264081e4d3b093a56bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0dbc4be206d4fb2419b721b4b2d063a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -239,7 +239,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 376066488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.93421155, y: 0.99761224, z: 0}
+  m_LocalPosition: {x: 4.85, y: 0.67, z: 0}
   m_LocalScale: {x: 1, y: 5.1874995, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -287,7 +287,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 979f72df6ecd55f4f89e822881ba1470, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 11fde69c3d928364098826008bfd7403, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -368,9 +368,39 @@ Prefab:
       propertyPath: m_Positions.Array.data[2].z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 21268284, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 32d4cb26ffc8ebf49b356d9d7cd9b124,
+        type: 3}
+    - target: {fileID: 11403238, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
+      propertyPath: moveSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1248572249 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 149638, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
+  m_PrefabInternal: {fileID: 1106237752}
+--- !u!50 &1248572253
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1248572249}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 15
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2018187980
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +444,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4e3539a91b3773a4e830792623e44e75, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f1cc03a703504d94b93585d84310251b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

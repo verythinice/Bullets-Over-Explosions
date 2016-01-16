@@ -2,10 +2,12 @@
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
+
     public enum bulletEnum { piercing, bouncing, exploding }
 
     public Vector3 normal;
 
+    Rigidbody2D rigidBody;
     public float moveSpeed;
     public bulletEnum currentBullet;
 
@@ -13,13 +15,18 @@ public class PlayerController : MonoBehaviour {
     RaycastHit2D[] hitList;
     Vector3 mousePos;
 
+    void Start()
+    {
+        rigidBody = GetComponent<Rigidbody2D>();
+    }
 
     void Awake()
     {
         sight = this.transform.FindChild("Sight").GetComponent<LineRenderer>();
     }
 		
-	void Update () {        
+	void Update () {
+        /*        
 	    if (Input.GetKey(KeyCode.W))
         {
             this.transform.Translate(new Vector2(0, 1) * moveSpeed * Time.deltaTime, Space.World);
@@ -35,7 +42,14 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKey(KeyCode.A))
         {
             this.transform.Translate(new Vector2(-1, 0) * moveSpeed * Time.deltaTime, Space.World);            
-        }
+        }*/
+
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector2 movement = new Vector2(horizontal, vertical);
+
+        rigidBody.AddForce(moveSpeed * movement / Time.deltaTime);
 
         mouseLook();
 
