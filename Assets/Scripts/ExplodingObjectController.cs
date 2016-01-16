@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyController : MonoBehaviour {
-
+public class ExplodingObjectController : MonoBehaviour {
 	public Transform prefab;
 
-	void LateUpdate () {
-		if (this.tag == "Dead") {
+	void LateUpdate(){
+		if (this.tag == "explode") {
 			Instantiate (prefab, this.transform.position, Quaternion.identity);
-			Destroy (this.gameObject);
 		}
 	}
 }
