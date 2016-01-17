@@ -15,15 +15,15 @@ public class LvlMngrController : MonoBehaviour {
         Debug.Log(currentExplosions);
         if (!ending && currentExplosions >= reqExplosions)
         {
-            if (!bulletTotal())
+            ending = true;
+            if (bulletTotal())
             {
-                ending = true;
-                restartLevel();
+                nextLevel();
             }
             else
             {
-                ending = true;
-                nextLevel();
+
+                restartLevel();
             }
         }
 	}
