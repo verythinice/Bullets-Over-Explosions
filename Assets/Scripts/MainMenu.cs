@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour {
         Application.Quit();
     }
 
-    public void Start()
+    public void Play()
     {
         Application.LoadLevel(1);
     }
