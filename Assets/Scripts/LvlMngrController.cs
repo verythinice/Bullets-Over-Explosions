@@ -54,7 +54,7 @@ public class LvlMngrController : MonoBehaviour {
         piercingText.text = (maxPierceAmmo - currentPierceAmmo).ToString();
         bouncingText.text = (maxBounceAmmo - currentBounceAmmo).ToString();
         explosiveText.text = (maxExplosionAmmo - currentExplosionAmmo).ToString();
-        scoreText.text = currentExplosions.ToString();
+        scoreText.text = currentExplosions.ToString() + "/" + reqExplosions.ToString();
 	}
 
     bool bulletTotal()
