@@ -8,41 +8,19 @@ public class PlayerController : MonoBehaviour {
     public float moveSpeed;
     public bulletEnum currentBullet;
 
-    LineRenderer sight, laser;    
-    Rigidbody2D rigidBody;
-    RaycastHit2D[] hitList;
-    Vector3 mousePos;
-
-    void Start()
-    {
-        rigidBody = GetComponent<Rigidbody2D>();
-    }
+    PlayerBulletAPI bulletAPI;
+    LineRenderer sight;   
+    Rigidbody2D rigidBody;    
+    Vector3 mousePos;   
 
     void Awake()
     {
-        sight = this.transform.FindChild("Sight").GetComponent<LineRenderer>();
-        laser = this.transform.FindChild("Laser").GetComponent<LineRenderer>();
+        bulletAPI = GetComponent<PlayerBulletAPI>();
+        rigidBody = GetComponent<Rigidbody2D>();
+        sight = this.transform.FindChild("Sight").GetComponent<LineRenderer>();               
     }
 		
 	void Update () {
-        /*        
-	    if (Input.GetKey(KeyCode.W))
-        {
-            this.transform.Translate(new Vector2(0, 1) * moveSpeed * Time.deltaTime, Space.World);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            this.transform.Translate(new Vector2(0, -1) * moveSpeed * Time.deltaTime, Space.World);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            this.transform.Translate(new Vector2(1, 0) * moveSpeed * Time.deltaTime, Space.World);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            this.transform.Translate(new Vector2(-1, 0) * moveSpeed * Time.deltaTime, Space.World);            
-        }*/
-
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -63,90 +41,33 @@ public class PlayerController : MonoBehaviour {
         switch (currentBullet)
         {
             case bulletEnum.piercing:
-                _PiercingShot();
+                bulletAPI.PiercingShot(mousePos);                
                 break;
-            case bulletEnum.bouncing:
-                _BouncingShot();
+            case bulletEnum.bouncing:                
+                bulletAPI.BouncingShot(mousePos);
                 break;
             case bulletEnum.exploding:
                 //_ExplodingShot();
                 break;
         }
-    }
-
-    private void _PiercingShot()
-    {
-        foreach (RaycastHit2D hit in hitList)
-        {
-            if (hit.collider.CompareTag("Wall"))
-            {
-                break;
-            }
-            if (hit.collider.CompareTag("Enemy"))
-            {
-                //Destroy(hit.collider.gameObject);
-                hit.collider.tag = "Dead";
-            }
-            if (hit.collider.CompareTag("Object"))
-            {
-                //Destroy(hit.collider.gameObject);
-                hit.collider.tag = "Explode";
-            }
-        }
-    }
-
-    private void _BouncingShot()
-    {        
-        int bounceCount = 0;
-        Vector3 initialPos = this.transform.position;
-        Vector3 targetPos = mousePos - initialPos;
-        laser.SetPosition(0, initialPos);
-
-        for (int i = 1; i <= 5; i++)
-        {            
-            targetPos.Normalize();
-            targetPos = Vector3.Scale(new Vector3(100, 100, 0), targetPos);
-            Vector3 vertexPos = targetPos; 
-            initialPos += (targetPos - initialPos).normalized * 0.1f;            
-            RaycastHit2D[] tempHitList = Physics2D.RaycastAll(initialPos, targetPos);                            
-            laser.enabled = true;                   
-
-            foreach (RaycastHit2D hit in tempHitList)
-            {
-                if (hit.collider.CompareTag("Wall"))
-                {
-                    Debug.Log(hit.collider.gameObject.name);
-                    bounceCount++;
-                    vertexPos = hit.point;
-                    //laser.SetPosition(bounceCount, hit.point);             
-                    initialPos = hit.point;
-                    targetPos = Vector2.Reflect(targetPos, hit.normal);                    
-                    break;
-                }
-                if (hit.collider.CompareTag("Enemy"))
-                {
-                    Destroy(hit.collider.gameObject);
-                }
-            }
-
-            laser.SetPosition(i, vertexPos);
-        }        
-    }
+    } 
 
     private void mouseLook()
     {
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);        
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = (Vector3)(Vector2)mousePos;  //Changes mousePos.z from being -10 to correctly being 0
         Vector3 dir = mousePos - this.transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle - 90, new Vector3(0, 0, 1));
         
-        Vector3 linePos1 = new Vector3(dir.x, dir.y, 0);
-        linePos1.Normalize();
-        linePos1 = Vector3.Scale(new Vector3(100, 100, 0), linePos1);
+        //Vector3 linePos1 = new Vector3(dir.x, dir.y, 0);
+        //linePos1.Normalize();
+        //linePos1 = Vector3.Scale(new Vector3(100, 100, 0), linePos1);
+        Vector3 linePos1 = dir.normalized * 100;
 
         Vector3 linePos2 = linePos1;
 
-        hitList = Physics2D.RaycastAll(this.transform.position, mousePos - this.transform.position);
+        RaycastHit2D[] hitList = Physics2D.RaycastAll(this.transform.position, mousePos - this.transform.position);
         foreach (RaycastHit2D hit in hitList)
         {
             if (hit.collider.CompareTag("Wall"))
@@ -156,6 +77,7 @@ public class PlayerController : MonoBehaviour {
                 {                                    
                     linePos2 = Vector2.Reflect(linePos2, hit.normal);
                 }
+                break;
             }
         }
         sight.SetPosition(0, this.transform.position);
