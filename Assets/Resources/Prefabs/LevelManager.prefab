@@ -138,6 +138,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &147086
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22427244}
+  - 222: {fileID: 22297926}
+  - 114: {fileID: 11429804}
+  m_Layer: 5
+  m_Name: TitleCard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &152130
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +283,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -342,7 +359,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeImg: {fileID: 11454008}
+  LevelStartImg: {fileID: 11429804}
   fadeSpeed: 1.5
+  timeUntilStart: 1
 --- !u!114 &11409854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -444,6 +463,33 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
+--- !u!114 &11429804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: f47ed826c8e82e94a88c0d76106fc2f7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &11431702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -614,14 +660,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reqExplosions: 2
   maxPierceAmmo: 1
-  maxBounceAmmo: 9001
-  maxExplosionAmmo: 9001
+  maxBounceAmmo: 0
+  maxExplosionAmmo: 0
   currentPierceAmmo: 1
   currentBounceAmmo: 9001
   currentExplosionAmmo: 9001
   currentExplosions: 0
   currentExplosionTriggers: 0
-  countDownTime: 3
+  timeUntilStart: 1
+  timeUntilFadeout: 3
   nextScene: 2
   scoreText: {fileID: 11432328}
   piercingText: {fileID: 11483334}
@@ -845,6 +892,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114286}
+--- !u!222 &22297926
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147086}
 --- !u!223 &22300492
 Canvas:
   m_ObjectHideFlags: 1
@@ -853,7 +906,7 @@ Canvas:
   m_GameObject: {fileID: 173546}
   m_Enabled: 1
   serializedVersion: 2
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -878,8 +931,8 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1748374979
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &22411046
 RectTransform:
@@ -898,6 +951,23 @@ RectTransform:
   m_AnchoredPosition: {x: 85, y: -30}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
+--- !u!224 &22427244
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147086}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_Children: []
+  m_Father: {fileID: 22433234}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0.0000038146973}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22431776
 RectTransform:
   m_ObjectHideFlags: 1
@@ -926,6 +996,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 22497354}
+  - {fileID: 22427244}
   m_Father: {fileID: 432646}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -1108,10 +1179,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22433234}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -309.6714, y: -128.47679}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -118.17139, y: -235.97679}
+  m_SizeDelta: {x: -317, y: -135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &100100000
 Prefab:

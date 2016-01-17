@@ -85,12 +85,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &98474896 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11468218, guid: 5f706d1941389904b8564025d4ccd80c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1815769272}
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!4 &244898658 stripped
 Transform:
   m_PrefabParentObject: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
@@ -588,6 +582,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1818282833}
   m_RootOrder: 3
+--- !u!20 &1602973112 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 2071184, guid: a856a96aee3c8064b9a18a1910cdf404,
+    type: 2}
+  m_PrefabInternal: {fileID: 701670076}
 --- !u!1001 &1752729672
 Prefab:
   m_ObjectHideFlags: 0
@@ -690,10 +689,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
-      propertyPath: uiCursor
+    - target: {fileID: 22318142, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
+      propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 98474896}
+      objectReference: {fileID: 1602973112}
+    - target: {fileID: 22300492, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1602973112}
+    - target: {fileID: 11429804, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
   m_IsPrefabParent: 0

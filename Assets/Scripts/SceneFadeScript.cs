@@ -6,24 +6,41 @@ using UnityEngine.SceneManagement;
 public class SceneFadeScript : MonoBehaviour
 {
     public Image FadeImg;
+    public Image LevelStartImg;
     public float fadeSpeed = 1.5f;
+    public float timeUntilStart = 1.0f;
     private int SceneNumber;
+    private bool sceneStart = true;
+    private float startTime=0;
     private bool fading;
+    private PlayerController player;
     //public bool sceneStarting = true;
 
 
     void Awake()
     {
+        LevelStartImg.color = Color.white;
         FadeImg.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
         FadeImg.color = new Color(0,0,0,0);
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        player.enabled = false;
     }
 
     void FixedUpdate()
     {
-        //// If the scene is starting...
-        //if (sceneStarting)
-        //    // ... call the StartScene function.
-        //    StartScene();
+        if (sceneStart)
+        {
+            if(startTime<= timeUntilStart)
+            {
+                startTime += Time.deltaTime;
+            }
+            else
+            {
+                sceneStart = false;
+                LevelStartImg.color = Color.clear;
+                player.enabled = true;
+            }
+        }
 
         if (fading)
         {
@@ -35,14 +52,6 @@ public class SceneFadeScript : MonoBehaviour
             // ... reload the level
             SceneManager.LoadScene(SceneNumber);
     }
-
-
-    void FadeToClear()
-    {
-        // Lerp the colour of the image between itself and transparent.
-        FadeImg.color = Color.Lerp(FadeImg.color, Color.clear, fadeSpeed * Time.deltaTime);
-    }
-
 
     void FadeToBlack()
     {
