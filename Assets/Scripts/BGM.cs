@@ -19,6 +19,7 @@ public class BGM : MonoBehaviour {
             bgm = GetComponent<AudioSource>();
         }
         DontDestroyOnLoad(this.gameObject);
+        Play();
     }
 
 
@@ -28,6 +29,5 @@ public class BGM : MonoBehaviour {
         {
             bgm.Play();
         }
-        Application.LoadLevel(Application.loadedLevel + 1);
     }
 }
