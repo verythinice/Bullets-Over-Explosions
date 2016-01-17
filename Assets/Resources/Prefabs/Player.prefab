@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2.5
-  currentBullet: 0
+  currentBullet: 1
 --- !u!114 &11470492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,7 +111,7 @@ LineRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: a1e49c1b231f31b4ea7585e442f7cd98, type: 2}
+  - {fileID: 2100000, guid: b11cdffdee07bd74d90f0f99be893443, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

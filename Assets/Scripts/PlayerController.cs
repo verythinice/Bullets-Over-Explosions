@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
                 bulletAPI.BouncingShot(mousePos);
                 break;
             case bulletEnum.exploding:
-                //_ExplodingShot();
+                bulletAPI.ExplodingShot(mousePos);
                 break;
         }
     } 

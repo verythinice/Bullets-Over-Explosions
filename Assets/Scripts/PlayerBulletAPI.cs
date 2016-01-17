@@ -86,4 +86,38 @@ public class PlayerBulletAPI : MonoBehaviour {
             laserRenderer.SetPosition(i, vertexPos);
         }
     }
+
+    public void ExplodingShot(Vector3 mousePos)
+    {
+        GameObject laser = (GameObject)Instantiate(explodingLaserPrefab);
+        LineRenderer laserRender = laser.GetComponent<LineRenderer>();
+
+        Vector3 initialPos = this.transform.position;
+        Vector3 targetPos = mousePos - initialPos;
+
+        Vector3 laserEndPos = targetPos.normalized * 100;
+
+        //RaycastHit2D[] hitList = Physics2D.RaycastAll(initialPos, targetPos);
+        RaycastHit2D hit = Physics2D.Raycast(initialPos, targetPos);
+        if (hit != null)
+        {
+            laserEndPos = hit.point;
+
+            //if (hit.collider.CompareTag("Wall"))
+            //{
+            //    laserEndPos = hit.point;
+            //}
+            if (hit.collider.CompareTag("Enemy"))
+            {
+                hit.collider.tag = "Dead";
+            }
+            if (hit.collider.CompareTag("Object"))
+            {
+                hit.collider.tag = "Explode";
+            }        
+        }
+
+        laserRender.SetPosition(0, this.transform.position);
+        laserRender.SetPosition(1, laserEndPos);
+    }
 }
