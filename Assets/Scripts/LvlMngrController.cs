@@ -15,7 +15,13 @@ public class LvlMngrController : MonoBehaviour {
     public Text bouncingText;
     public Text explosiveText;
     public Image uiCursor;
+    AudioPlayer audioPlayer;
     private bool ending = false;
+
+    void Awake()
+    {
+        audioPlayer = GetComponent<AudioPlayer>();
+    }
 
     void Start()
     {
@@ -55,6 +61,7 @@ public class LvlMngrController : MonoBehaviour {
         explosion.GetComponent<ParticleSystemMultiplier>().multiplier = 20;
         explosion.transform.position = Camera.main.transform.position;
         Instantiate(explosion, explosion.transform.position, Quaternion.identity);
+        audioPlayer.Play("wow");
         GetComponent<SceneFadeScript>().EndScene(nextScene);
     }
 
@@ -64,6 +71,7 @@ public class LvlMngrController : MonoBehaviour {
         explosion.GetComponent<ParticleSystemMultiplier>().multiplier = 20;
         explosion.transform.position = Camera.main.transform.position;
         Instantiate(explosion, explosion.transform.position, Quaternion.identity);
+        audioPlayer.Play("2SED4AIRHORN");
         GetComponent<SceneFadeScript>().EndScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
