@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ExplodingObjectController : MonoBehaviour {  
+public class ExplodingObjectController : MonoBehaviour {
+    public float explosionRadius = 3f;
+
     GameObject explosionSystemPrefab;
     GameObject explosionTriggerPrefab;
 
@@ -17,7 +19,8 @@ public class ExplodingObjectController : MonoBehaviour {
 
             Instantiate(explosionSystemPrefab, this.transform.position, Quaternion.identity);
             this.tag = "Untagged";
-            Instantiate(explosionTriggerPrefab, this.transform.position, Quaternion.identity);	
+            GameObject explosion = (GameObject)Instantiate(explosionTriggerPrefab, this.transform.position, Quaternion.identity);
+            explosion.GetComponent<ExplosionTriggerController>().maxRadius = explosionRadius;
 			Destroy (this.gameObject);
 		}
 	}
