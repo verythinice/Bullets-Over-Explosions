@@ -41,17 +41,14 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            currentBullet = bulletEnum.piercing;
-            levelManager.uiCursor.rectTransform.anchoredPosition = new Vector2(85f, -30f);
+            currentBullet = bulletEnum.piercing;            
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            currentBullet = bulletEnum.bouncing;
-            levelManager.uiCursor.rectTransform.anchoredPosition = new Vector2(185f, -30f);
+            currentBullet = bulletEnum.bouncing;            
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            levelManager.uiCursor.rectTransform.anchoredPosition = new Vector2(285f, -30f);
+        {            
             currentBullet = bulletEnum.exploding;
         }
 
@@ -121,29 +118,5 @@ public class PlayerController : MonoBehaviour {
                 break;
             }                
         }
-       
-
-        //Vector3 linePos1 = dir.normalized * 100;
-
-        //Vector3 linePos2 = linePos1;
-
-        //RaycastHit2D[] hitList = Physics2D.RaycastAll(this.transform.position, mousePos - this.transform.position);
-        //foreach (RaycastHit2D hit in hitList)
-        //{
-        //    if (hit.collider.CompareTag("Wall"))
-        //    {     
-        //        linePos1 = hit.point;
-        //        if (currentBullet == bulletEnum.bouncing)
-        //        {                                    
-        //            linePos2 = Vector2.Reflect(linePos2, hit.normal);                    
-        //        }
-        //        break;
-        //    }
-        //}
-        //sight.SetPosition(0, this.transform.position);
-        //sight.SetPosition(1, linePos1);
-
-        //linePos2 = linePos1 + (2 * linePos2.normalized);
-        //sight.SetPosition(2, linePos2);
     }
 }

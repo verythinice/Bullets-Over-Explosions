@@ -16,6 +16,7 @@ public class LvlMngrController : MonoBehaviour {
     public Text explosiveText;
     public Image uiCursor;
 
+    PlayerController player;
     GameObject winExplosion;
     GameObject loseExplosion;
     AudioPlayer audioPlayer;
@@ -23,6 +24,7 @@ public class LvlMngrController : MonoBehaviour {
 
     void Awake()
     {
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
         winExplosion = Resources.Load("Prefabs/LevelEndExplosion") as GameObject;
         loseExplosion = Resources.Load("Prefabs/LevelLoseExplosion") as GameObject;
         audioPlayer = GetComponent<AudioPlayer>();
@@ -35,7 +37,8 @@ public class LvlMngrController : MonoBehaviour {
         currentExplosionAmmo = 0;
     }
 	
-	void Update () {        
+	void Update () {
+        ManageUICursor();
         if (!ending && currentExplosions >= reqExplosions)
         {
             ending = true;
@@ -77,5 +80,21 @@ public class LvlMngrController : MonoBehaviour {
         Instantiate(explosion, explosion.transform.position, Quaternion.identity);
         audioPlayer.Play("2SED4AIRHORN");
         GetComponent<SceneFadeScript>().EndScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void ManageUICursor()
+    {
+        switch (player.currentBullet)
+        {
+            case PlayerController.bulletEnum.piercing:
+                uiCursor.rectTransform.anchoredPosition = new Vector2(85f, -30f);
+                break;
+            case PlayerController.bulletEnum.bouncing:
+                uiCursor.rectTransform.anchoredPosition = new Vector2(185f, -30f);
+                break;
+            case PlayerController.bulletEnum.exploding:
+                uiCursor.rectTransform.anchoredPosition = new Vector2(285f, -30f);
+                break;
+        }
     }
 }
