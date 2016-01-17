@@ -1,22 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ExplodingObjectController : MonoBehaviour {
-	public Transform selfExplode;
-	public Transform triggerExplode;
-	public float delay;
+public class ExplodingObjectController : MonoBehaviour {  
+    GameObject explosionSystemPrefab;
+    GameObject explosionTriggerPrefab;
+
+    void Awake()
+    {
+        explosionSystemPrefab = Resources.Load("Prefabs/ExplosionSystemBlue") as GameObject;
+        explosionTriggerPrefab = Resources.Load("Prefabs/ExplosionTrigger") as GameObject;
+    }
+
 	void LateUpdate(){
 		if (this.tag == "Explode") {
-			
 
-			Instantiate (selfExplode, this.transform.position, Quaternion.identity);
-			this.tag = "Untagged";
-			Invoke ("delayExplosion", delay);
-			//Destroy (this.gameObject);
+
+            Instantiate(explosionSystemPrefab, this.transform.position, Quaternion.identity);
+            this.tag = "Untagged";
+            Instantiate(explosionTriggerPrefab, this.transform.position, Quaternion.identity);	
+			Destroy (this.gameObject);
 		}
-	}
-	void delayExplosion(){
-		Instantiate (triggerExplode, this.transform.position, Quaternion.identity);
-		Destroy (this.gameObject);
 	}
 }

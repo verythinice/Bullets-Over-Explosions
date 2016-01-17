@@ -10,8 +10,9 @@ GameObject:
   - 4: {fileID: 489752}
   - 58: {fileID: 5820080}
   - 114: {fileID: 11420732}
-  m_Layer: 0
-  m_Name: ExplosionTrigger 1
+  - 50: {fileID: 5095240}
+  m_Layer: 2
+  m_Name: ExplosionTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,6 +30,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5095240
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124502}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &5820080
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -42,7 +60,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 0.0001
 --- !u!114 &11420732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,16 +69,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 124502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4af870d77dba79f47a18af21c2e212ae, type: 3}
+  m_Script: {fileID: 11500000, guid: d8e75955c0bbfcd41a3f801d5a30475f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  growthRate: 2
+  maxRadius: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Radius
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxRadius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: growthRate
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 124502}

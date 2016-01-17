@@ -17,7 +17,8 @@ public class ParticleSystemKiller : MonoBehaviour {
                 maxTime = system.startLifetime;
             }
         }
-}
+        Camera.main.GetComponent<CameraShakeScript>().screenShake(0.7f, 0.5f);
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
