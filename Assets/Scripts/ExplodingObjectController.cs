@@ -16,7 +16,7 @@ public class ExplodingObjectController : MonoBehaviour {
 
 
             Instantiate(explosionSystemPrefab, this.transform.position, Quaternion.identity);
-			this.tag = "Untagged";
+            this.tag = "Untagged";
             Instantiate(explosionTriggerPrefab, this.transform.position, Quaternion.identity);	
 			Destroy (this.gameObject);
 		}

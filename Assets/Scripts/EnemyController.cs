@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour {
 	void LateUpdate () {
 		if (this.tag == "Dead") {
 			Instantiate (prefab, this.transform.position, Quaternion.identity);
-			Destroy (this.gameObject);
+            Destroy (this.gameObject);
 		}
 	}
 }
