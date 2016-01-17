@@ -20,7 +20,7 @@ public class ExplosionTriggerController : MonoBehaviour {
     void Update()
     {
 
-        if (this.GetComponent<CircleCollider2D>().radius < 2)
+        if (this.GetComponent<CircleCollider2D>().radius < maxRadius)
         {
             this.GetComponent<CircleCollider2D>().radius += growthRate * Time.deltaTime;
         }

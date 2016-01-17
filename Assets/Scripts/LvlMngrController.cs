@@ -13,8 +13,9 @@ public class LvlMngrController : MonoBehaviour {
             nextLevel();
         }
         else if (bulletTotal() == 0 && currentExplosionTriggers == 0 && currentExplosions < reqExplosions)
-        {            
-            restartLevel();
+        {           
+			Invoke ("restartLevel", 1f);
+            //restartLevel();
         }
 	}
 
