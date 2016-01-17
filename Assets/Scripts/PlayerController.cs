@@ -97,24 +97,30 @@ public class PlayerController : MonoBehaviour {
         sight.SetPosition(0, initialPos);        
 
         for (int i = 1; i <= 2; i++)
-        {
+        {            
             targetPos = targetPos.normalized * 100;
             Vector3 vertexPos = targetPos;            
+
             initialPos += (targetPos).normalized * 0.1f;            
             RaycastHit2D[] hitList = Physics2D.RaycastAll(initialPos, targetPos);
 
             foreach (RaycastHit2D hit in hitList)
             {
                 if (hit.collider.CompareTag("Wall"))  
-                {
+                {                                   
                     vertexPos = hit.point;
                     initialPos = hit.point;
-                    targetPos = Vector2.Reflect(targetPos, hit.normal);
+                    targetPos = Vector2.Reflect(targetPos, hit.normal);                    
                     break;
                 }               
             }
             
-            sight.SetPosition(i, vertexPos);                  
+            sight.SetPosition(i, vertexPos);
+            if (currentBullet != bulletEnum.bouncing)
+            {
+                sight.SetPosition(2, vertexPos);
+                break;
+            }                
         }
        
 
