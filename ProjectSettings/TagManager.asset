@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Wall
   - Fire
+  - Dead
+  - Object
+  - Explode
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Bac
   - 
   - 
   - 
