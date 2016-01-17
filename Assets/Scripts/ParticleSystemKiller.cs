@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.Effects;
 
 public class ParticleSystemKiller : MonoBehaviour {
     LvlMngrController levelManager;
@@ -22,7 +23,7 @@ public class ParticleSystemKiller : MonoBehaviour {
             }
         }
         levelManager.currentExplosions++;        
-        Camera.main.GetComponent<CameraShakeScript>().screenShake(0.7f, 0.5f);
+        Camera.main.GetComponent<CameraShakeScript>().screenShake(0.7f* (transform.GetComponent<ParticleSystemMultiplier>().multiplier), 0.5f*(transform.GetComponent<ParticleSystemMultiplier>().multiplier));
     }
 	
 	// Update is called once per frame

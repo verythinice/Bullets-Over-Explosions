@@ -1,15 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.Effects;
 
 public class LvlMngrController : MonoBehaviour {
     public int currentExplosionTriggers = 0;
     public int maxPierceAmmo = 1, maxBounceAmmo, maxExplosionAmmo;
-    public int currentPierceAmmo = 1, currentBounceAmmo, currentExplosionAmmo, reqExplosions = 1, currentExplosions;	
+    public int currentPierceAmmo = 1, currentBounceAmmo, currentExplosionAmmo, reqExplosions = 1, currentExplosions;
+    public float countDownTime = 3;
+    public int nextScene=0;
+    private bool ending = false;
 	
 	void Update () {
         Debug.Log(currentExplosions);
-        if (currentExplosions >= reqExplosions)
+        if (!ending && currentExplosions >= reqExplosions)
         {
+            ending = true;
             nextLevel();
         }
         else if (bulletTotal() == 0 && currentExplosionTriggers == 0 && currentExplosions < reqExplosions)
@@ -26,7 +31,11 @@ public class LvlMngrController : MonoBehaviour {
 
     void nextLevel()
     {
-        Application.LoadLevel(Application.loadedLevel + 1);
+        GameObject explosion = Resources.Load("Prefabs/LevelEndExplosion") as GameObject;
+        explosion.GetComponent<ParticleSystemMultiplier>().multiplier = 20;
+        explosion.transform.position = new Vector3(0, 0, 0);
+        Instantiate(explosion, explosion.transform.position, Quaternion.identity);
+        GetComponent<SceneFadeScript>().EndScene(nextScene);
     }
 
     void restartLevel()

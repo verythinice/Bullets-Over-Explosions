@@ -7,9 +7,10 @@ public class PlayerController : MonoBehaviour {
     
     public float moveSpeed;
     public bulletEnum currentBullet;
-
+    
     LvlMngrController levelManager;
     PlayerBulletAPI bulletAPI;
+    AudioPlayer audioPlayer;
     LineRenderer sight;   
     Rigidbody2D rigidBody;    
     Vector3 mousePos;   
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour {
     {
         levelManager = GameObject.Find("LevelManager").GetComponent<LvlMngrController>();
         bulletAPI = GetComponent<PlayerBulletAPI>();
+        audioPlayer = GetComponent<AudioPlayer>();
         rigidBody = GetComponent<Rigidbody2D>();
         sight = this.transform.FindChild("Sight").GetComponent<LineRenderer>();               
     }
@@ -58,6 +60,7 @@ public class PlayerController : MonoBehaviour {
             case bulletEnum.piercing:
                 if (levelManager.currentPierceAmmo > 0)
                 {
+                    audioPlayer.Play("PierceLaser");
                     bulletAPI.PiercingShot(mousePos);
                     levelManager.currentPierceAmmo--;
                 }                
@@ -65,6 +68,7 @@ public class PlayerController : MonoBehaviour {
             case bulletEnum.bouncing:
                 if (levelManager.currentBounceAmmo > 0)
                 {
+                    audioPlayer.Play("BounceLaser");
                     bulletAPI.BouncingShot(mousePos);
                     levelManager.currentBounceAmmo--;
                 }                
@@ -72,6 +76,7 @@ public class PlayerController : MonoBehaviour {
             case bulletEnum.exploding:
                 if (levelManager.currentExplosionAmmo > 0)
                 {
+                    audioPlayer.Play("ExplosiveLaser");
                     bulletAPI.ExplodingShot(mousePos);
                     levelManager.currentExplosionAmmo--;
                 }                
