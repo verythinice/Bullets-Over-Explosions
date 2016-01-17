@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityStandardAssets.Effects;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LvlMngrController : MonoBehaviour {
     public int reqExplosions = 1, maxPierceAmmo = 1, maxBounceAmmo, maxExplosionAmmo;
@@ -9,6 +10,8 @@ public class LvlMngrController : MonoBehaviour {
     public int currentPierceAmmo, currentBounceAmmo, currentExplosionAmmo, currentExplosions, currentExplosionTriggers;
     public float countDownTime = 3;
     public int nextScene=-1;
+    public Text scoreText;
+    public Text bulletText;
     private bool ending = false;
 
     void Start()
@@ -32,6 +35,9 @@ public class LvlMngrController : MonoBehaviour {
                 restartLevel();
             }
         }
+
+        bulletText.text = (currentPierceAmmo + currentBounceAmmo + currentExplosionAmmo).ToString();
+        scoreText.text = currentExplosions.ToString();
 	}
 
     bool bulletTotal()
