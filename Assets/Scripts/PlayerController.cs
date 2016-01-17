@@ -32,6 +32,19 @@ public class PlayerController : MonoBehaviour {
 
         mouseLook();
 
+        if (Input.GetKeyDown(KeyCode.Alpha1) && levelManager.currentPierceAmmo > 0)
+        {
+            currentBullet = bulletEnum.piercing;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2) && levelManager.currentBounceAmmo > 0)
+        {
+            currentBullet = bulletEnum.bouncing;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3) && levelManager.currentExplosionAmmo > 0)
+        {
+            currentBullet = bulletEnum.exploding;
+        }
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();            
@@ -73,26 +86,58 @@ public class PlayerController : MonoBehaviour {
         Vector3 dir = mousePos - this.transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle - 90, new Vector3(0, 0, 1));
-                
-        Vector3 linePos1 = dir.normalized * 100;
 
-        Vector3 linePos2 = linePos1;
+        Vector3 initialPos = this.transform.position;
+        Vector3 targetPos = mousePos - initialPos;
+        sight.SetPosition(0, initialPos);
 
-        RaycastHit2D[] hitList = Physics2D.RaycastAll(this.transform.position, mousePos - this.transform.position);
-        foreach (RaycastHit2D hit in hitList)
+        for (int i = 1; i <= 2; i++)
         {
-            if (hit.collider.CompareTag("Wall"))
-            {     
-                linePos1 = hit.point;
-                if (currentBullet == bulletEnum.bouncing)
-                {                                    
-                    linePos2 = Vector2.Reflect(linePos2, hit.normal);
-                }
-                break;
+            targetPos = targetPos.normalized * 100;
+            Vector3 vertexPos = targetPos;            
+            initialPos += (targetPos).normalized * 0.1f;
+            //if (i == 2)
+            //{
+            //    vertexPos = initialPos + (2 * targetPos.normalized);
+            //}
+            RaycastHit2D[] hitList = Physics2D.RaycastAll(initialPos, targetPos);
+
+            foreach (RaycastHit2D hit in hitList)
+            {
+                if (hit.collider.CompareTag("Wall") )
+                    //&& Vector2.Distance(hit.point, this.transform.position) < Vector2.Distance(vertexPos, this.transform.position))
+                {
+                    vertexPos = hit.point;
+                    initialPos = hit.point;
+                    targetPos = Vector2.Reflect(targetPos, hit.normal);
+                    break;
+                }               
             }
+            
+            sight.SetPosition(i, vertexPos);                        
         }
-        sight.SetPosition(0, this.transform.position);
-        sight.SetPosition(1, linePos1);
-        sight.SetPosition(2, linePos2);
+
+        //Vector3 linePos1 = dir.normalized * 100;
+
+        //Vector3 linePos2 = linePos1;
+
+        //RaycastHit2D[] hitList = Physics2D.RaycastAll(this.transform.position, mousePos - this.transform.position);
+        //foreach (RaycastHit2D hit in hitList)
+        //{
+        //    if (hit.collider.CompareTag("Wall"))
+        //    {     
+        //        linePos1 = hit.point;
+        //        if (currentBullet == bulletEnum.bouncing)
+        //        {                                    
+        //            linePos2 = Vector2.Reflect(linePos2, hit.normal);                    
+        //        }
+        //        break;
+        //    }
+        //}
+        //sight.SetPosition(0, this.transform.position);
+        //sight.SetPosition(1, linePos1);
+
+        //linePos2 = linePos1 + (2 * linePos2.normalized);
+        //sight.SetPosition(2, linePos2);
     }
 }

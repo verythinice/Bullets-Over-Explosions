@@ -53,8 +53,7 @@ public class PlayerBulletAPI : MonoBehaviour {
     {
         GameObject laser = (GameObject)Instantiate(bouncingLaserPrefab);
         LineRenderer laserRenderer = laser.GetComponent<LineRenderer>();
-
-        int bounceCount = 0;
+        
         Vector3 initialPos = this.transform.position;
         Vector3 targetPos = mousePos - initialPos;
         laserRenderer.SetPosition(0, initialPos);
@@ -64,14 +63,12 @@ public class PlayerBulletAPI : MonoBehaviour {
             targetPos = targetPos.normalized * 100;
             Vector3 vertexPos = targetPos;
             initialPos += (targetPos).normalized * 0.1f;
-            RaycastHit2D[] hitList = Physics2D.RaycastAll(initialPos, targetPos);
-            laserRenderer.enabled = true;
+            RaycastHit2D[] hitList = Physics2D.RaycastAll(initialPos, targetPos);            
 
             foreach (RaycastHit2D hit in hitList)
             {
                 if (hit.collider.CompareTag("Wall"))
-                {
-                    bounceCount++;
+                {                    
                     vertexPos = hit.point;
                     initialPos = hit.point;
                     targetPos = Vector2.Reflect(targetPos, hit.normal);
