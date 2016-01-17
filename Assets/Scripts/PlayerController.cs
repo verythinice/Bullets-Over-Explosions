@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour {
 
         mouseLook();
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            levelManager.restartLevel();
+        }
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             currentBullet = bulletEnum.piercing;

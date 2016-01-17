@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LvlMngrController : MonoBehaviour {
-    public int reqExplosions = 1, maxPierceAmmo = 1, maxBounceAmmo, maxExplosionAmmo;
+    public int reqExplosions = 1, maxPierceAmmo = 1, maxBounceAmmo = 0, maxExplosionAmmo = 0;
     [HideInInspector]
     public int currentPierceAmmo, currentBounceAmmo, currentExplosionAmmo, currentExplosions, currentExplosionTriggers;
     public float countDownTime = 3;
@@ -15,11 +15,16 @@ public class LvlMngrController : MonoBehaviour {
     public Text bouncingText;
     public Text explosiveText;
     public Image uiCursor;
+
+    GameObject winExplosion;
+    GameObject loseExplosion;
     AudioPlayer audioPlayer;
     private bool ending = false;
 
     void Awake()
     {
+        winExplosion = Resources.Load("Prefabs/LevelEndExplosion") as GameObject;
+        loseExplosion = Resources.Load("Prefabs/LevelLoseExplosion") as GameObject;
         audioPlayer = GetComponent<AudioPlayer>();
     }
 
@@ -40,7 +45,6 @@ public class LvlMngrController : MonoBehaviour {
             }
             else
             {
-
                 restartLevel();
             }
         }
@@ -57,7 +61,7 @@ public class LvlMngrController : MonoBehaviour {
 
     void nextLevel()
     {
-        GameObject explosion = Resources.Load("Prefabs/LevelEndExplosion") as GameObject;
+        GameObject explosion = winExplosion;
         explosion.GetComponent<ParticleSystemMultiplier>().multiplier = 20;
         explosion.transform.position = Camera.main.transform.position;
         Instantiate(explosion, explosion.transform.position, Quaternion.identity);
@@ -65,9 +69,9 @@ public class LvlMngrController : MonoBehaviour {
         GetComponent<SceneFadeScript>().EndScene(nextScene);
     }
 
-    void restartLevel()
+    public void restartLevel()
     {
-        GameObject explosion = Resources.Load("Prefabs/LevelLoseExplosion") as GameObject;
+        GameObject explosion = loseExplosion;
         explosion.GetComponent<ParticleSystemMultiplier>().multiplier = 20;
         explosion.transform.position = Camera.main.transform.position;
         Instantiate(explosion, explosion.transform.position, Quaternion.identity);
