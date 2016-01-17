@@ -10,9 +10,15 @@ public class LvlMngrController : MonoBehaviour {
     public float countDownTime = 3;
     public int nextScene=-1;
     private bool ending = false;
+
+    void Start()
+    {
+        currentPierceAmmo = 0;
+        currentBounceAmmo = 0;
+        currentExplosionAmmo = 0;
+    }
 	
-	void Update () {
-        Debug.Log(currentExplosions);
+	void Update () {        
         if (!ending && currentExplosions >= reqExplosions)
         {
             ending = true;
