@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
     public float moveSpeed;
     public bulletEnum currentBullet;
 
+    LvlMngrController levelManager;
     PlayerBulletAPI bulletAPI;
     LineRenderer sight;   
     Rigidbody2D rigidBody;    
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour {
 
     void Awake()
     {
+        levelManager = GameObject.Find("LevelManager").GetComponent<LvlMngrController>();
         bulletAPI = GetComponent<PlayerBulletAPI>();
         rigidBody = GetComponent<Rigidbody2D>();
         sight = this.transform.FindChild("Sight").GetComponent<LineRenderer>();               
@@ -33,7 +35,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();            
-        }        
+        }
     }
 
     private void Shoot()
@@ -41,13 +43,25 @@ public class PlayerController : MonoBehaviour {
         switch (currentBullet)
         {
             case bulletEnum.piercing:
-                bulletAPI.PiercingShot(mousePos);                
+                if (levelManager.currentPierceAmmo > 0)
+                {
+                    bulletAPI.PiercingShot(mousePos);
+                    levelManager.currentPierceAmmo--;
+                }                
                 break;
-            case bulletEnum.bouncing:                
-                bulletAPI.BouncingShot(mousePos);
+            case bulletEnum.bouncing:
+                if (levelManager.currentBounceAmmo > 0)
+                {
+                    bulletAPI.BouncingShot(mousePos);
+                    levelManager.currentBounceAmmo--;
+                }                
                 break;
             case bulletEnum.exploding:
-                bulletAPI.ExplodingShot(mousePos);
+                if (levelManager.currentExplosionAmmo > 0)
+                {
+                    bulletAPI.ExplodingShot(mousePos);
+                    levelManager.currentExplosionAmmo--;
+                }                
                 break;
         }
     } 
@@ -59,10 +73,7 @@ public class PlayerController : MonoBehaviour {
         Vector3 dir = mousePos - this.transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle - 90, new Vector3(0, 0, 1));
-        
-        //Vector3 linePos1 = new Vector3(dir.x, dir.y, 0);
-        //linePos1.Normalize();
-        //linePos1 = Vector3.Scale(new Vector3(100, 100, 0), linePos1);
+                
         Vector3 linePos1 = dir.normalized * 100;
 
         Vector3 linePos2 = linePos1;
