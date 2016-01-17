@@ -94,23 +94,18 @@ public class PlayerController : MonoBehaviour {
 
         Vector3 initialPos = this.transform.position;
         Vector3 targetPos = mousePos - initialPos;
-        sight.SetPosition(0, initialPos);
+        sight.SetPosition(0, initialPos);        
 
         for (int i = 1; i <= 2; i++)
         {
             targetPos = targetPos.normalized * 100;
             Vector3 vertexPos = targetPos;            
-            initialPos += (targetPos).normalized * 0.1f;
-            //if (i == 2)
-            //{
-            //    vertexPos = initialPos + (2 * targetPos.normalized);
-            //}
+            initialPos += (targetPos).normalized * 0.1f;            
             RaycastHit2D[] hitList = Physics2D.RaycastAll(initialPos, targetPos);
 
             foreach (RaycastHit2D hit in hitList)
             {
-                if (hit.collider.CompareTag("Wall") )
-                    //&& Vector2.Distance(hit.point, this.transform.position) < Vector2.Distance(vertexPos, this.transform.position))
+                if (hit.collider.CompareTag("Wall"))  
                 {
                     vertexPos = hit.point;
                     initialPos = hit.point;
@@ -119,8 +114,9 @@ public class PlayerController : MonoBehaviour {
                 }               
             }
             
-            sight.SetPosition(i, vertexPos);                        
+            sight.SetPosition(i, vertexPos);                  
         }
+       
 
         //Vector3 linePos1 = dir.normalized * 100;
 
