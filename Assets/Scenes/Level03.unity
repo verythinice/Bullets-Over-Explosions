@@ -140,11 +140,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.04
+      value: 2.86
       objectReference: {fileID: 0}
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.49
+      value: -2.1
       objectReference: {fileID: 0}
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.z
@@ -280,11 +280,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.51
+      value: -2.69
       objectReference: {fileID: 0}
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.02
+      value: 3.43
       objectReference: {fileID: 0}
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.z
@@ -397,8 +397,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 876021683}
   - 212: {fileID: 876021682}
-  - 58: {fileID: 876021681}
   - 114: {fileID: 876021680}
+  - 58: {fileID: 876021681}
   m_Layer: 0
   m_Name: rko
   m_TagString: Object
@@ -430,7 +430,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 2.5
 --- !u!212 &876021682
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -457,7 +457,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7c9352fece094b840985286d884c141c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 115286eb559553044abace9aed6d9ed1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -468,8 +468,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 876021679}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19311294, y: 4.1639957, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.01, y: 1.57, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -482,11 +482,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.63
+      value: -2.81
       objectReference: {fileID: 0}
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.31
+      value: -2.28
       objectReference: {fileID: 0}
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.z
@@ -549,11 +549,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.03
+      value: 2.85
       objectReference: {fileID: 0}
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.9
+      value: 3.31
       objectReference: {fileID: 0}
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.z
@@ -810,7 +810,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1325393391}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
-  m_LocalPosition: {x: -9.57, y: -3.26, z: 10}
+  m_LocalPosition: {x: -9.57, y: -6.03, z: 10}
   m_LocalScale: {x: 1, y: 7.1653624, z: 1}
   m_Children: []
   m_Father: {fileID: 1210050077}
@@ -958,7 +958,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1767666204}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
-  m_LocalPosition: {x: 6.1, y: -3.26, z: 10}
+  m_LocalPosition: {x: 6.19, y: -6.03, z: 10}
   m_LocalScale: {x: 1, y: 7.165362, z: 1}
   m_Children: []
   m_Father: {fileID: 1210050077}
