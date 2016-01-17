@@ -1,44 +1,53 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityStandardAssets.Effects;
+using UnityEngine.SceneManagement;
 
 public class LvlMngrController : MonoBehaviour {
-    public int currentExplosionTriggers = 0;
-    public int maxPierceAmmo = 1, maxBounceAmmo, maxExplosionAmmo;
-    public int currentPierceAmmo = 1, currentBounceAmmo, currentExplosionAmmo, reqExplosions = 1, currentExplosions;
+    public int reqExplosions = 1, maxPierceAmmo = 1, maxBounceAmmo, maxExplosionAmmo;
+    [HideInInspector]
+    public int currentPierceAmmo, currentBounceAmmo, currentExplosionAmmo, currentExplosions, currentExplosionTriggers;
     public float countDownTime = 3;
-    public int nextScene=0;
+    public int nextScene=-1;
     private bool ending = false;
 	
 	void Update () {
         Debug.Log(currentExplosions);
         if (!ending && currentExplosions >= reqExplosions)
         {
-            ending = true;
-            nextLevel();
-        }
-        else if (bulletTotal() == 0 && currentExplosionTriggers == 0 && currentExplosions < reqExplosions && !ending)
-        {           
-            restartLevel();
+            if (!bulletTotal())
+            {
+                ending = true;
+                restartLevel();
+            }
+            else
+            {
+                ending = true;
+                nextLevel();
+            }
         }
 	}
 
-    int bulletTotal()
+    bool bulletTotal()
     {
-        return currentPierceAmmo + currentBounceAmmo + currentExplosionAmmo;
+        return (currentPierceAmmo<=maxPierceAmmo && currentBounceAmmo <= maxBounceAmmo && currentExplosionAmmo<=maxExplosionAmmo);
     }
 
     void nextLevel()
     {
         GameObject explosion = Resources.Load("Prefabs/LevelEndExplosion") as GameObject;
         explosion.GetComponent<ParticleSystemMultiplier>().multiplier = 20;
-        explosion.transform.position = new Vector3(0, 0, 0);
+        explosion.transform.position = Camera.main.transform.position;
         Instantiate(explosion, explosion.transform.position, Quaternion.identity);
         GetComponent<SceneFadeScript>().EndScene(nextScene);
     }
 
     void restartLevel()
     {
-        Application.LoadLevel(Application.loadedLevel);
+        GameObject explosion = Resources.Load("Prefabs/LevelLoseExplosion") as GameObject;
+        explosion.GetComponent<ParticleSystemMultiplier>().multiplier = 20;
+        explosion.transform.position = Camera.main.transform.position;
+        Instantiate(explosion, explosion.transform.position, Quaternion.identity);
+        GetComponent<SceneFadeScript>().EndScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

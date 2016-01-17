@@ -34,15 +34,15 @@ public class PlayerController : MonoBehaviour {
 
         mouseLook();
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && levelManager.currentPierceAmmo > 0)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             currentBullet = bulletEnum.piercing;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && levelManager.currentBounceAmmo > 0)
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             currentBullet = bulletEnum.bouncing;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && levelManager.currentExplosionAmmo > 0)
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             currentBullet = bulletEnum.exploding;
         }
@@ -58,28 +58,19 @@ public class PlayerController : MonoBehaviour {
         switch (currentBullet)
         {
             case bulletEnum.piercing:
-                if (levelManager.currentPierceAmmo > 0)
-                {
                     audioPlayer.Play("PierceLaser");
                     bulletAPI.PiercingShot(mousePos);
-                    levelManager.currentPierceAmmo--;
-                }                
+                    levelManager.currentPierceAmmo++;             
                 break;
             case bulletEnum.bouncing:
-                if (levelManager.currentBounceAmmo > 0)
-                {
                     audioPlayer.Play("BounceLaser");
                     bulletAPI.BouncingShot(mousePos);
-                    levelManager.currentBounceAmmo--;
-                }                
+                    levelManager.currentBounceAmmo++;               
                 break;
             case bulletEnum.exploding:
-                if (levelManager.currentExplosionAmmo > 0)
-                {
                     audioPlayer.Play("ExplosiveLaser");
                     bulletAPI.ExplodingShot(mousePos);
-                    levelManager.currentExplosionAmmo--;
-                }                
+                    levelManager.currentExplosionAmmo++;              
                 break;
         }
     } 
