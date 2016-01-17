@@ -37,13 +37,16 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             currentBullet = bulletEnum.piercing;
+            levelManager.uiCursor.rectTransform.anchoredPosition = new Vector2(85f, -30f);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             currentBullet = bulletEnum.bouncing;
+            levelManager.uiCursor.rectTransform.anchoredPosition = new Vector2(185f, -30f);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
+            levelManager.uiCursor.rectTransform.anchoredPosition = new Vector2(285f, -30f);
             currentBullet = bulletEnum.exploding;
         }
 

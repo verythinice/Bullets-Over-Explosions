@@ -11,7 +11,10 @@ public class LvlMngrController : MonoBehaviour {
     public float countDownTime = 3;
     public int nextScene=-1;
     public Text scoreText;
-    public Text bulletText;
+    public Text piercingText;
+    public Text bouncingText;
+    public Text explosiveText;
+    public Image uiCursor;
     private bool ending = false;
 
     void Start()
@@ -35,8 +38,9 @@ public class LvlMngrController : MonoBehaviour {
                 restartLevel();
             }
         }
-
-        bulletText.text = (currentPierceAmmo + currentBounceAmmo + currentExplosionAmmo).ToString();
+        piercingText.text = (maxPierceAmmo - currentPierceAmmo).ToString();
+        bouncingText.text = (maxBounceAmmo - currentBounceAmmo).ToString();
+        explosiveText.text = (maxExplosionAmmo - currentExplosionAmmo).ToString();
         scoreText.text = currentExplosions.ToString();
 	}
 
