@@ -431,64 +431,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
---- !u!1001 &750184762
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 4.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 8262274, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8254180, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8207562, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403238, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
-      propertyPath: currentBullet
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &910609437
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,8 +589,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b6eaf77ff2bd441854ca067c275e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 424098, guid: 22046cb5844286243836a51738d1ce66, type: 2}
   moveSpeed: 0
+  radius: 0
+  prefab: {fileID: 424098, guid: 22046cb5844286243836a51738d1ce66, type: 2}
   circleMove: 0
   centerPoint: {fileID: 0}
 --- !u!1 &992724073
@@ -736,8 +679,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b6eaf77ff2bd441854ca067c275e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 424098, guid: 22046cb5844286243836a51738d1ce66, type: 2}
   moveSpeed: 0
+  radius: 0
+  prefab: {fileID: 424098, guid: 22046cb5844286243836a51738d1ce66, type: 2}
   circleMove: 0
   centerPoint: {fileID: 0}
 --- !u!1 &1027408700
@@ -825,8 +769,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b6eaf77ff2bd441854ca067c275e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 424098, guid: 22046cb5844286243836a51738d1ce66, type: 2}
   moveSpeed: 0
+  radius: 0
+  prefab: {fileID: 424098, guid: 22046cb5844286243836a51738d1ce66, type: 2}
   circleMove: 0
   centerPoint: {fileID: 0}
 --- !u!1001 &1198680634
@@ -878,6 +823,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
       propertyPath: reqExplosions
+      value: 9001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
+      propertyPath: currentExplosionAmmo
+      value: 9001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
+      propertyPath: currentPierceAmmo
+      value: 9001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
+      propertyPath: maxExplosionAmmo
+      value: 9001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
+      propertyPath: maxPierceAmmo
       value: 9001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -968,10 +929,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b6eaf77ff2bd441854ca067c275e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 424098, guid: 22046cb5844286243836a51738d1ce66, type: 2}
   moveSpeed: 0
+  radius: 0
+  prefab: {fileID: 424098, guid: 22046cb5844286243836a51738d1ce66, type: 2}
   circleMove: 0
   centerPoint: {fileID: 0}
+--- !u!1001 &1730634851
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 473168, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1782207940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,8 +1061,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b6eaf77ff2bd441854ca067c275e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 424098, guid: 22046cb5844286243836a51738d1ce66, type: 2}
   moveSpeed: 0
+  radius: 0
+  prefab: {fileID: 424098, guid: 22046cb5844286243836a51738d1ce66, type: 2}
   circleMove: 0
   centerPoint: {fileID: 0}
 --- !u!1 &2018187980
@@ -1146,8 +1151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b6eaf77ff2bd441854ca067c275e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 424098, guid: 22046cb5844286243836a51738d1ce66, type: 2}
   moveSpeed: 0
+  radius: 0
+  prefab: {fileID: 424098, guid: 22046cb5844286243836a51738d1ce66, type: 2}
   circleMove: 0
   centerPoint: {fileID: 0}
 --- !u!1 &2062255029
@@ -1235,7 +1241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b6eaf77ff2bd441854ca067c275e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 424098, guid: 22046cb5844286243836a51738d1ce66, type: 2}
   moveSpeed: 0
+  radius: 0
+  prefab: {fileID: 424098, guid: 22046cb5844286243836a51738d1ce66, type: 2}
   circleMove: 0
   centerPoint: {fileID: 0}
