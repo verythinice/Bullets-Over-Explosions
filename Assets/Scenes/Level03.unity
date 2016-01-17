@@ -191,6 +191,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 33082b9b424d7cc40b17ad24c851f78c,
         type: 3}
+    - target: {fileID: 181266, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
+      propertyPath: m_Name
+      value: Cat 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
   m_IsPrefabParent: 0
@@ -276,7 +280,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1633871963}
     m_Modifications:
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.x
@@ -284,7 +288,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.43
+      value: 0.93000007
       objectReference: {fileID: 0}
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.z
@@ -308,11 +312,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 181266, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Name
-      value: Enemy (1)
+      value: Cat 3
       objectReference: {fileID: 0}
     - target: {fileID: 21255104, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Sprite
@@ -338,6 +342,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &232507025 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
+  m_PrefabInternal: {fileID: 232507024}
 --- !u!1001 &492469253
 Prefab:
   m_ObjectHideFlags: 0
@@ -462,7 +470,35 @@ Transform:
   m_LocalScale: {x: 26.229166, y: 26.229168, z: 26.229168}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 4
+--- !u!1 &830037528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 830037529}
+  m_Layer: 0
+  m_Name: Destructables
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &830037529
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 830037528}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 876021683}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &876021679
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +511,7 @@ GameObject:
   - 114: {fileID: 876021680}
   - 58: {fileID: 876021681}
   m_Layer: 0
-  m_Name: barrel
+  m_Name: Exploding Barrel
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,11 +580,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 876021679}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 1.57, z: 0}
+  m_LocalPosition: {x: 0.01, y: -0.92999995, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 830037529}
+  m_RootOrder: 0
 --- !u!1001 &879039621
 Prefab:
   m_ObjectHideFlags: 0
@@ -590,7 +626,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 181266, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Name
-      value: Enemy (1)
+      value: Cat 2
       objectReference: {fileID: 0}
     - target: {fileID: 21255104, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Sprite
@@ -621,7 +657,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1633871963}
     m_Modifications:
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.x
@@ -629,7 +665,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.31
+      value: 0.80999994
       objectReference: {fileID: 0}
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_LocalPosition.z
@@ -653,11 +689,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 181266, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Name
-      value: Enemy (2)
+      value: Cat 4
       objectReference: {fileID: 0}
     - target: {fileID: 21255104, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Sprite
@@ -683,6 +719,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1050548349 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
+  m_PrefabInternal: {fileID: 1050548348}
 --- !u!1 &1179672177
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,7 +828,7 @@ Transform:
   - {fileID: 1325393392}
   - {fileID: 1767666205}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &1281514979
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,7 +1034,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1633871963}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: EnemyHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1012,8 +1052,10 @@ Transform:
   m_Children:
   - {fileID: 218888365}
   - {fileID: 629510610}
+  - {fileID: 232507025}
+  - {fileID: 1050548349}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
 --- !u!1 &1767666204
 GameObject:
   m_ObjectHideFlags: 0

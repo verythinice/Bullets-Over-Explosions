@@ -306,7 +306,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 181266, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Name
-      value: Enemy (2)
+      value: Enemy 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
@@ -374,6 +374,10 @@ Prefab:
     - target: {fileID: 5855468, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Radius
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 181266, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
+      propertyPath: m_Name
+      value: Enemy 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
@@ -444,7 +448,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 181266, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Name
-      value: Enemy (6)
+      value: Enemy 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
@@ -542,7 +546,7 @@ GameObject:
   - 58: {fileID: 295690058}
   - 114: {fileID: 295690057}
   m_Layer: 0
-  m_Name: barrel
+  m_Name: ExplodingBarrel 3
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -611,11 +615,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 295690056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.64, y: 5.49, z: 0}
+  m_LocalPosition: {x: 0.64, y: 5.49, z: -1}
   m_LocalScale: {x: 0.42394876, y: 0.41023293, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 1599785987}
+  m_RootOrder: 0
 --- !u!1001 &409755905
 Prefab:
   m_ObjectHideFlags: 0
@@ -657,7 +661,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 181266, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Name
-      value: Enemy (1)
+      value: Enemy 3
       objectReference: {fileID: 0}
     - target: {fileID: 21255104, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Sprite
@@ -753,7 +757,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 181266, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Name
-      value: Enemy (3)
+      value: Enemy 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
@@ -799,7 +803,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 181266, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Name
-      value: Enemy (1)
+      value: Enemy 2
       objectReference: {fileID: 0}
     - target: {fileID: 21255104, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Sprite
@@ -859,7 +863,7 @@ Transform:
   - {fileID: 940611993}
   - {fileID: 58292976}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1001 &789762429
 Prefab:
   m_ObjectHideFlags: 0
@@ -947,7 +951,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 181266, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Name
-      value: Enemy (5)
+      value: Enemy 7
       objectReference: {fileID: 0}
     - target: {fileID: 21255104, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Sprite
@@ -1128,7 +1132,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 181266, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
       propertyPath: m_Name
-      value: Enemy (4)
+      value: Enemy 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
@@ -1206,6 +1210,36 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1599785986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1599785987}
+  m_Layer: 0
+  m_Name: Destructables
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1599785987
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1599785986}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 295690060}
+  - {fileID: 2040955669}
+  - {fileID: 2075016539}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!4 &1606206583 stripped
 Transform:
   m_PrefabParentObject: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
@@ -1222,7 +1256,7 @@ GameObject:
   - 58: {fileID: 2040955667}
   - 114: {fileID: 2040955666}
   m_Layer: 0
-  m_Name: barrel (2)
+  m_Name: ExplodingBarrel 2
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1291,11 +1325,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2040955665}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.38, y: 0.07, z: 0}
+  m_LocalPosition: {x: 3.38, y: 0.07, z: -1}
   m_LocalScale: {x: 0.42394876, y: 0.41023293, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1599785987}
+  m_RootOrder: 1
 --- !u!1 &2052341591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,7 +1339,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2052341592}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Enemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1330,7 +1364,7 @@ Transform:
   - {fileID: 243739966}
   - {fileID: 1140101210}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &2075016535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,7 +1377,7 @@ GameObject:
   - 58: {fileID: 2075016537}
   - 114: {fileID: 2075016536}
   m_Layer: 0
-  m_Name: barrel (1)
+  m_Name: ExplodingBarrel 1
   m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1412,11 +1446,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2075016535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.51, y: 1.03, z: 0}
+  m_LocalPosition: {x: -2.5100002, y: 1.0299997, z: -1}
   m_LocalScale: {x: 0.42394876, y: 0.41023293, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1599785987}
+  m_RootOrder: 2
 --- !u!4 &2109278777 stripped
 Transform:
   m_PrefabParentObject: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
