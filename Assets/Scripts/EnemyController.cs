@@ -3,8 +3,9 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour {
 
-	public Transform prefab;
 	public float moveSpeed;
+	public float radius;
+	public Transform prefab;
 	public bool circleMove;
 	public GameObject centerPoint;
 
@@ -16,7 +17,7 @@ public class EnemyController : MonoBehaviour {
 			float x = Mathf.Cos (timeCounter*moveSpeed);
 			float y = Mathf.Sin (timeCounter*moveSpeed);
 			//float z = 0;
-			transform.position = new Vector2 (centerPoint.transform.position.x + x, centerPoint.transform.position.y + y);
+			transform.position = new Vector2 (centerPoint.transform.position.x + (x * radius), centerPoint.transform.position.y + (y * radius));
 		}
 	}
 
