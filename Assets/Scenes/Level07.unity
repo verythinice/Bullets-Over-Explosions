@@ -581,7 +581,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
       propertyPath: reqExplosions
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
       propertyPath: maxBounceAmmo
