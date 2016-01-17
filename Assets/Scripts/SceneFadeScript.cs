@@ -77,6 +77,13 @@ public class SceneFadeScript : MonoBehaviour
 
         // Start fading towards black.
         FadeToBlack();
-        this.SceneNumber = SceneNumber;
+        if (SceneNumber == -1)
+        {
+            this.SceneNumber = SceneManager.GetActiveScene().buildIndex + 1;
+        }
+        else
+        {
+            this.SceneNumber = SceneNumber;
+        }
     }
 }
