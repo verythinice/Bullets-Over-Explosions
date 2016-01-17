@@ -5,9 +5,16 @@ public class ExplosionTriggerController : MonoBehaviour {
 
     public float growthRate, maxRadius;
 
+    LvlMngrController levelManager;
+
+    void Awake()
+    {
+        levelManager = GameObject.Find("LevelManager").GetComponent<LvlMngrController>();
+    }
+
     void Start()
     {
-        Invoke("CleanUp", 10f);
+        levelManager.currentExplosionTriggers++;        
     }
 
     void Update()
@@ -16,6 +23,11 @@ public class ExplosionTriggerController : MonoBehaviour {
         if (this.GetComponent<CircleCollider2D>().radius < 2)
         {
             this.GetComponent<CircleCollider2D>().radius += growthRate * Time.deltaTime;
+        }
+        else
+        {
+            levelManager.currentExplosionTriggers--;
+            Destroy(this.gameObject);
         }
     }
 
@@ -28,8 +40,8 @@ public class ExplosionTriggerController : MonoBehaviour {
 		}		
 	}
 
-    void CleanUp()
-    {
-        Destroy (this.gameObject);
-    }
+    //void CleanUp()
+    //{
+    //    Destroy (this.gameObject);
+    //}
 }

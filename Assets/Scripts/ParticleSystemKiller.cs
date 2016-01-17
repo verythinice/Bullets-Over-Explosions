@@ -2,10 +2,14 @@
 using System.Collections;
 
 public class ParticleSystemKiller : MonoBehaviour {
+    LvlMngrController levelManager;
     private float maxTime;
     private float time;
 
-	// Use this for initialization
+    void Awake()
+    {
+        levelManager = GameObject.Find("LevelManager").GetComponent<LvlMngrController>();
+    }
 	void Start () {
         var systems = GetComponentsInChildren<ParticleSystem>();
         maxTime = 0;
@@ -17,6 +21,7 @@ public class ParticleSystemKiller : MonoBehaviour {
                 maxTime = system.startLifetime;
             }
         }
+        levelManager.currentExplosions++;        
         Camera.main.GetComponent<CameraShakeScript>().screenShake(0.7f, 0.5f);
     }
 	
