@@ -5,12 +5,16 @@ public class PlayerBulletAPI : MonoBehaviour {
     GameObject piercingLaserPrefab;
     GameObject bouncingLaserPrefab;
     GameObject explodingLaserPrefab;
+    GameObject explosionSystemPrefab;
+    GameObject explosionTriggerPrefab;
 
     void Awake()
     {
         piercingLaserPrefab = Resources.Load("Prefabs/PiercingLaser") as GameObject;
         bouncingLaserPrefab = Resources.Load("Prefabs/BouncingLaser") as GameObject;
         explodingLaserPrefab = Resources.Load("Prefabs/ExplodingLaser") as GameObject;
+        explosionSystemPrefab = Resources.Load("Prefabs/ExplosionSystemBlue") as GameObject;
+        explosionTriggerPrefab = Resources.Load("Prefabs/ExplosionTrigger") as GameObject;        
     }    
 
     public void PiercingShot(Vector3 mousePos)
@@ -96,17 +100,15 @@ public class PlayerBulletAPI : MonoBehaviour {
         Vector3 targetPos = mousePos - initialPos;
 
         Vector3 laserEndPos = targetPos.normalized * 100;
-
-        //RaycastHit2D[] hitList = Physics2D.RaycastAll(initialPos, targetPos);
+        
         RaycastHit2D hit = Physics2D.Raycast(initialPos, targetPos);
         if (hit != null)
         {
             laserEndPos = hit.point;
 
-            //if (hit.collider.CompareTag("Wall"))
-            //{
-            //    laserEndPos = hit.point;
-            //}
+            Instantiate(explosionSystemPrefab, hit.point, Quaternion.identity);
+            Instantiate(explosionTriggerPrefab, hit.point, Quaternion.identity);
+
             if (hit.collider.CompareTag("Enemy"))
             {
                 hit.collider.tag = "Dead";
