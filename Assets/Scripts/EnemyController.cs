@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour {
 
 	void LateUpdate () {
 		if (this.tag == "Dead") {
-            Invoke("Death", .5f);
+            Invoke("Death", 0f);
 		}
 	}
 

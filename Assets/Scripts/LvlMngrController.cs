@@ -8,7 +8,7 @@ public class LvlMngrController : MonoBehaviour {
     public int reqExplosions = 1, maxPierceAmmo = 1, maxBounceAmmo = 0, maxExplosionAmmo = 0;
     [HideInInspector]
     public int currentPierceAmmo, currentBounceAmmo, currentExplosionAmmo, currentExplosions, currentExplosionTriggers;
-    public float countDownTime = 3;
+    public float timeUntilFadeout = 1;
     public int nextScene=-1;
     public Text scoreText;
     public Text piercingText;
@@ -44,11 +44,11 @@ public class LvlMngrController : MonoBehaviour {
             ending = true;
             if (bulletTotal())
             {
-                nextLevel();
+                StartCoroutine(nextLevelDelay());
             }
             else
             {
-                restartLevel();
+                StartCoroutine(restartLevelDelay());
             }
         }
         piercingText.text = (maxPierceAmmo - currentPierceAmmo).ToString();
@@ -62,12 +62,35 @@ public class LvlMngrController : MonoBehaviour {
         return (currentPierceAmmo<=maxPierceAmmo && currentBounceAmmo <= maxBounceAmmo && currentExplosionAmmo<=maxExplosionAmmo);
     }
 
+    IEnumerator nextLevelDelay()
+    {
+        float currentTime = 0;
+        while (currentTime < timeUntilFadeout)
+        {
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+        nextLevel();
+    }
+
+    IEnumerator restartLevelDelay()
+    {
+        float currentTime = 0;
+        while (currentTime < timeUntilFadeout)
+        {
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+        restartLevel();
+    }
+
     void nextLevel()
     {
         GameObject explosion = winExplosion;
         explosion.GetComponent<ParticleSystemMultiplier>().multiplier = 20;
-        explosion.transform.position = Camera.main.transform.position;
+        explosion.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
         Instantiate(explosion, explosion.transform.position, Quaternion.identity);
+        Camera.main.GetComponent<CameraShakeScript>().screenShake(1.0f, 1.0f);
         audioPlayer.Play("wow");
         GetComponent<SceneFadeScript>().EndScene(nextScene);
     }
@@ -76,8 +99,9 @@ public class LvlMngrController : MonoBehaviour {
     {
         GameObject explosion = loseExplosion;
         explosion.GetComponent<ParticleSystemMultiplier>().multiplier = 20;
-        explosion.transform.position = Camera.main.transform.position;
+        explosion.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
         Instantiate(explosion, explosion.transform.position, Quaternion.identity);
+        Camera.main.GetComponent<CameraShakeScript>().screenShake(1.0f, 1.0f);
         audioPlayer.Play("2SED4AIRHORN");
         GetComponent<SceneFadeScript>().EndScene(SceneManager.GetActiveScene().buildIndex);
     }
