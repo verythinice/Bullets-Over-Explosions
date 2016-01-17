@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BGM : MonoBehaviour {
 
@@ -20,6 +21,14 @@ public class BGM : MonoBehaviour {
         }
         DontDestroyOnLoad(this.gameObject);
         Play();
+    }
+
+    void Update()
+    {
+        if(SceneManager.GetActiveScene().buildIndex == 0 && bgm.isPlaying)
+        {
+            bgm.Stop();
+        }
     }
 
 
