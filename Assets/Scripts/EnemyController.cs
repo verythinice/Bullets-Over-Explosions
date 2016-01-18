@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour {
     public enum circleStart { left, right, top, down}
@@ -12,16 +11,9 @@ public class EnemyController : MonoBehaviour {
     public circleStart rotateStart = circleStart.right;
 	public GameObject centerPoint;
 
-   
-    float timeCounter = 0;
-    AudioPlayer audioPlayer;
+	float timeCounter = 0;
 
-    void Awake()
-    {
-        audioPlayer = GetComponent<AudioPlayer>();
-    }
-
-    void Update(){
+	void Update(){
 		
 		if (circleMove == true) {
 			CircleRotate();
@@ -63,7 +55,6 @@ public class EnemyController : MonoBehaviour {
 
     void Death()
     {
-        audioPlayer.Play("explosion");
         Instantiate(prefab, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
