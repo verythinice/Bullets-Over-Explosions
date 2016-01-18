@@ -23,16 +23,28 @@ public class BGM : MonoBehaviour {
         Play();
     }
 
-    void Update()
+    void OnLevelWasLoaded(int level)
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0 && bgm.isPlaying)
+        if (level != 0 && level != 15 && level != 16)
+        {
+            if (!bgm.isPlaying)
+            {
+                bgm.clip = Resources.Load("Sounds/Slamstorm - Quad City DJs vs. Darude") as AudioClip;
+                Play();
+            }
+        }
+        else if (level == 16)
+        {
+            if (!bgm.isPlaying) {
+                bgm.clip = Resources.Load("Sounds/theme of sanic hegehog") as AudioClip;
+                Play();
+            }
+        }
+        else
         {
             bgm.Stop();
         }
-        if (SceneManager.GetActiveScene().buildIndex == 15 && bgm.isPlaying)
-        {
-            bgm.Stop();
-        }
+
     }
 
     public void Play()
