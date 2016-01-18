@@ -8,13 +8,13 @@ public class AudioPlayer : MonoBehaviour {
 
     Dictionary<string, AudioClip> library = new Dictionary<string, AudioClip>();
 
-    private static AudioSource source;
+    private AudioSource source;
     private float volLowRange = .5f;
     private float volHighRange = 1.0f;
 
     void Awake()
     {
-        source = GetComponent<AudioSource>();
+        source = this.GetComponent<AudioSource>();
         foreach (string name in audioClipNames)
         {
             library[name] = Resources.Load("Sounds/" + name) as AudioClip;
