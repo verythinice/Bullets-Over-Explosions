@@ -222,7 +222,8 @@ Prefab:
       propertyPath: m_Name
       value: Sanic 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5855468, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &432398524 stripped
@@ -233,6 +234,20 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
   m_PrefabInternal: {fileID: 920405330}
+--- !u!58 &432398526
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 432398524}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!95 &432398529
 Animator:
   serializedVersion: 3
@@ -604,7 +619,8 @@ Prefab:
       propertyPath: radius
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5855468, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &956667225
@@ -717,7 +733,8 @@ Prefab:
       propertyPath: radius
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5855468, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &997486720
@@ -872,6 +889,20 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
   m_PrefabInternal: {fileID: 988983880}
+--- !u!58 &1260244777
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1260244775}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!95 &1260244780
 Animator:
   serializedVersion: 3
@@ -1049,6 +1080,20 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 479752, guid: 2c7f12fe063f9bd4f98e57e50ec56937, type: 2}
   m_PrefabInternal: {fileID: 302769370}
+--- !u!58 &1942722845
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942722843}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!95 &1942722848
 Animator:
   serializedVersion: 3
