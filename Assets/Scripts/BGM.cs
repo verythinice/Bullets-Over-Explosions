@@ -29,7 +29,7 @@ public class BGM : MonoBehaviour {
         {
             bgm.Stop();
         }
-        if (SceneManager.GetActiveScene().buildIndex == 14 && bgm.isPlaying)
+        if (SceneManager.GetActiveScene().buildIndex == 15 && bgm.isPlaying)
         {
             bgm.Stop();
         }
