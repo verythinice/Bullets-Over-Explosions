@@ -50,6 +50,7 @@ public class PauseMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        UnpauseGame();
         Application.LoadLevel(0);
     }
 
