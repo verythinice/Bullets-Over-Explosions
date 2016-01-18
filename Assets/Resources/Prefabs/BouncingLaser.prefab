@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a390a9f27479b4ab5c0e36fb0254b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 0.25
+  lifetime: 1.5
 --- !u!120 &12081222
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -93,7 +93,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: lifetime
-      value: 0.25
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
