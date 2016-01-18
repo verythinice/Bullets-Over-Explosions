@@ -9,11 +9,13 @@ public class SceneFadeScript : MonoBehaviour
     public Image LevelStartImg;
     public float fadeSpeed = 1.5f;
     public float timeUntilStart = 1.0f;
-    private int SceneNumber;
-    private bool sceneStart = true;
+    [HideInInspector]
+    public bool sceneStart = true;
+    private int SceneNumber;    
     private float startTime=0;
     private bool fading;
     private PlayerController player;
+    private GameObject UIPanel;
     //public bool sceneStarting = true;
 
 
@@ -23,7 +25,9 @@ public class SceneFadeScript : MonoBehaviour
         FadeImg.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
         FadeImg.color = new Color(0,0,0,0);
         player = GameObject.Find("Player").GetComponent<PlayerController>();
+        UIPanel = GameObject.Find("UIPanel");
         player.enabled = false;
+        UIPanel.SetActive(false);
     }
 
     void FixedUpdate()
@@ -39,6 +43,7 @@ public class SceneFadeScript : MonoBehaviour
                 sceneStart = false;
                 LevelStartImg.color = Color.clear;
                 player.enabled = true;
+                UIPanel.SetActive(true);
             }
         }
 

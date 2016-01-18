@@ -13,20 +13,23 @@ public class LvlMngrController : MonoBehaviour {
     public Text scoreText;
     public Text piercingText;
     public Text bouncingText;
-    public Text explosiveText;
+    public Text explosiveText;    
+    public Image piercingIcon;
+    public Image bouncingIcon;
+    public Image explodingBulletIcon;
     public Image uiCursor;
 
     PlayerController player;
     GameObject winExplosion;
     GameObject loseExplosion;
     AudioPlayer audioPlayer;
-    private bool ending = false;
+    private bool ending = false;    
 
     void Awake()
     {
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        player = GameObject.Find("Player").GetComponent<PlayerController>();                
         winExplosion = Resources.Load("Prefabs/LevelEndExplosion") as GameObject;
-        loseExplosion = Resources.Load("Prefabs/LevelLoseExplosion") as GameObject;
+        loseExplosion = Resources.Load("Prefabs/LevelLoseExplosion") as GameObject;        
         audioPlayer = GetComponent<AudioPlayer>();
     }
 
@@ -111,14 +114,18 @@ public class LvlMngrController : MonoBehaviour {
         switch (player.currentBullet)
         {
             case PlayerController.bulletEnum.piercing:
-                uiCursor.rectTransform.anchoredPosition = new Vector2(85f, -30f);
+                //uiCursor.rectTransform.anchoredPosition = new Vector2(85f, -30f);
+                uiCursor.rectTransform.anchoredPosition = piercingIcon.rectTransform.anchoredPosition;
                 break;
             case PlayerController.bulletEnum.bouncing:
-                uiCursor.rectTransform.anchoredPosition = new Vector2(185f, -30f);
+                //uiCursor.rectTransform.anchoredPosition = new Vector2(185f, -30f);
+                uiCursor.rectTransform.anchoredPosition = bouncingIcon.rectTransform.anchoredPosition;
                 break;
             case PlayerController.bulletEnum.exploding:
-                uiCursor.rectTransform.anchoredPosition = new Vector2(285f, -30f);
+                uiCursor.rectTransform.anchoredPosition = explodingBulletIcon.rectTransform.anchoredPosition;
+                //uiCursor.rectTransform.anchoredPosition = new Vector2(285f, -30f);
                 break;
         }
+        uiCursor.rectTransform.anchoredPosition += new Vector2(0, 5f);
     }
 }
