@@ -1132,6 +1132,10 @@ Prefab:
       propertyPath: maxExplosionAmmo
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
+      propertyPath: maxBounceAmmo
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
   m_IsPrefabParent: 0

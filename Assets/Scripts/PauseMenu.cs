@@ -5,6 +5,7 @@ public class PauseMenu : MonoBehaviour
 {
     GameObject pauseMenuPanel;
     bool isPaused = false;
+    LvlMngrController levelManager;
     SceneFadeScript sceneFade;
     PlayerController player;
 
@@ -13,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuPanel = GameObject.Find("PauseMenu");
         sceneFade = GameObject.Find("LevelManager").GetComponent<SceneFadeScript>();
+        levelManager = GameObject.Find("LevelManager").GetComponent<LvlMngrController>();
         player = GameObject.Find("Player").GetComponent<PlayerController>();
         pauseMenuPanel.SetActive(false);
         Time.timeScale = 1;
@@ -49,5 +51,11 @@ public class PauseMenu : MonoBehaviour
     public void GoToMainMenu()
     {
         Application.LoadLevel(0);
+    }
+
+    public void RestartFromPause()
+    {
+        UnpauseGame();
+        levelManager.restartLevel();
     }
 }

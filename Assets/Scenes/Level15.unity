@@ -1729,59 +1729,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 432646, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
       propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
-      propertyPath: reqExplosions
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
-      propertyPath: maxBounceAmmo
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
-      propertyPath: maxPierceAmmo
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
-      propertyPath: currentPierceAmmo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
-      propertyPath: currentBounceAmmo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22497354, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -129.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 22497354, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -308.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
-      propertyPath: maxExplosionAmmo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
-      propertyPath: currentExplosionAmmo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 152130, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 105294, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11429804, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 54e7a88b8292f194c9a76f4def6ce08c,
-        type: 3}
-    - target: {fileID: 11404728, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
-      propertyPath: timeUntilStart
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
