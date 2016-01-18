@@ -25,12 +25,15 @@ public class BGM : MonoBehaviour {
 
     void Update()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 0 && bgm.isPlaying)
+        if (SceneManager.GetActiveScene().buildIndex == 0 && bgm.isPlaying)
+        {
+            bgm.Stop();
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 15 && bgm.isPlaying)
         {
             bgm.Stop();
         }
     }
-
 
     public void Play()
     {
