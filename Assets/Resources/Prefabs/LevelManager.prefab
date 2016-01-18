@@ -962,7 +962,7 @@ MonoBehaviour:
   currentExplosionAmmo: 1
   currentExplosions: 0
   currentExplosionTriggers: 0
-  timeUntilFadeout: 3
+  timeUntilFadeout: 2
   nextScene: -1
   scoreText: {fileID: 11432328}
   piercingText: {fileID: 11483334}
@@ -1047,7 +1047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1656,7 +1656,7 @@ RectTransform:
   - {fileID: 22406586}
   - {fileID: 22463734}
   m_Father: {fileID: 22433234}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.00007629351, y: 0.00067329407}
@@ -1673,7 +1673,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 22433234}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.0000038146973}
@@ -1706,10 +1706,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 22461516}
   - {fileID: 22497354}
   - {fileID: 22427244}
   - {fileID: 22421780}
-  - {fileID: 22461516}
   m_Father: {fileID: 432646}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -1840,7 +1840,7 @@ RectTransform:
   - {fileID: 22435290}
   - {fileID: 22411046}
   m_Father: {fileID: 22433234}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1958,14 +1958,14 @@ RectTransform:
   m_GameObject: {fileID: 194320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 484, y: 272, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 22433234}
-  m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -308.86, y: -129.37}
-  m_SizeDelta: {x: -317, y: -135}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &100100000
 Prefab:

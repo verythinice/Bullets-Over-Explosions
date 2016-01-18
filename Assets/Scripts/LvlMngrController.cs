@@ -93,7 +93,7 @@ public class LvlMngrController : MonoBehaviour {
         explosion.GetComponent<ParticleSystemMultiplier>().multiplier = 20;
         explosion.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
         Instantiate(explosion, explosion.transform.position, Quaternion.identity);
-        Camera.main.GetComponent<CameraShakeScript>().screenShake(1.0f, 1.0f);
+        Camera.main.GetComponent<CameraShakeScript>().screenShake(2.0f, 4.0f);
         audioPlayer.Play("wow");
         GetComponent<SceneFadeScript>().EndScene(nextScene);
     }
@@ -104,7 +104,7 @@ public class LvlMngrController : MonoBehaviour {
         explosion.GetComponent<ParticleSystemMultiplier>().multiplier = 20;
         explosion.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
         Instantiate(explosion, explosion.transform.position, Quaternion.identity);
-        Camera.main.GetComponent<CameraShakeScript>().screenShake(1.0f, 1.0f);
+        Camera.main.GetComponent<CameraShakeScript>().screenShake(2.0f, 4.0f);
         audioPlayer.Play("2SED4AIRHORN");
         GetComponent<SceneFadeScript>().EndScene(SceneManager.GetActiveScene().buildIndex);
     }
