@@ -74,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.13, y: 2.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 490394}
@@ -102,8 +102,8 @@ Rigidbody2D:
   m_GameObject: {fileID: 149638}
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 15
-  m_AngularDrag: 0.05
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc0e4a1400077dc4eb4e73fe1ad9ab53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.5
+  moveSpeed: 10
   currentBullet: 2
 --- !u!114 &11465698
 MonoBehaviour:

@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour {
 
         Vector2 movement = new Vector2(horizontal, vertical);
 
-        rigidBody.AddForce(moveSpeed * movement / Time.deltaTime);
+        rigidBody.velocity = movement.normalized * moveSpeed;
 
         mouseLook();
 
