@@ -14,17 +14,16 @@ public class EnemyController : MonoBehaviour {
 	float timeCounter = 0;
 
 	void Update(){
+        if (this.tag == "Dead")
+        {
+            Invoke("Death", 0f);
+        }
 		
 		if (circleMove == true) {
 			CircleRotate();
 		}
 	}
 
-	void LateUpdate () {
-		if (this.tag == "Dead") {
-            Invoke("Death", 0f);
-		}
-	}
 
     void CircleRotate()
     {
