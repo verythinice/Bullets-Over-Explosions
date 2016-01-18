@@ -1769,11 +1769,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 152130, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 105294, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11429804, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 54e7a88b8292f194c9a76f4def6ce08c,
+        type: 3}
+    - target: {fileID: 11404728, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
+      propertyPath: timeUntilStart
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}

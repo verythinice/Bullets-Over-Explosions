@@ -295,7 +295,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
       propertyPath: maxPierceAmmo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
       propertyPath: currentPierceAmmo
@@ -320,6 +320,19 @@ Prefab:
     - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
       propertyPath: currentExplosionAmmo
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11429804, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a9e309103ec7b8043a90234cb0ffd192,
+        type: 3}
+    - target: {fileID: 11404728, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
+      propertyPath: timeUntilStart
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449502, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
+      propertyPath: nextScene
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f706d1941389904b8564025d4ccd80c, type: 2}
@@ -446,7 +459,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11403238, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}
       propertyPath: currentBullet
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8478567bb7d04443ae240cd5204ceeb, type: 2}

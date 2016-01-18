@@ -849,7 +849,7 @@ MonoBehaviour:
   currentExplosions: 0
   currentExplosionTriggers: 0
   timeUntilFadeout: 3
-  nextScene: 2
+  nextScene: -1
   scoreText: {fileID: 11432328}
   piercingText: {fileID: 11483334}
   bouncingText: {fileID: 11439190}
@@ -1778,7 +1778,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: nextScene
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 105294}
